@@ -1,0 +1,57 @@
+.rooms-section{
+    padding: 2rem;
+}
+.rooms-section h1{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.rooms-container{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.room{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    color: white;
+    margin: 0 15px; 
+    background: black;
+    box-shadow: 0 1rem 3rem rgb(10 14 13);
+    border-radius: 5px;
+}
+.room img{
+    position: absolute;
+    width: 100%;
+    align-self: center;
+    height: 100%;
+    border-radius: inherit;
+    text-align: center;
+}
+.room-info{
+    height: 40px;
+    width: 100%;
+    /* margin: 10px 0; */
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    background-color: black;
+    opacity: .7;
+    z-index: 1;
+}
+.btn{
+    position: relative;
+    background: red;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 150px;
+    opacity: .9;
+    cursor: pointer;
+    border-radius: inherit;
+}

@@ -1,0 +1,63 @@
+.home-body-info{
+    color: white;
+    margin: 6em auto 5em;
+    width: 60%;
+    display: flex;
+}
+.home-body-info h1{
+    font-size: 3rem;
+}
+.dishes-section{
+    background-color: white;
+    padding: 2rem;
+}
+.dishes-section h1{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.dishes-container{
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dish{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    color: white;
+    margin: 0 15px; 
+    background: black;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.dish img{
+    position: absolute;
+    width: 100%;
+    align-self: center;
+    height: 80%;
+    border-radius: inherit;
+    text-align: center;
+}
+.dish-info{
+    width: 100%;
+    margin: 10px 0;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    bottom: 0;
+    z-index: 1;
+}
+.dish-info .title{
+    color: white;
+}
+.btn{
+    background: red;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 150px;
+    opacity: .9;
+    cursor: pointer;
+}

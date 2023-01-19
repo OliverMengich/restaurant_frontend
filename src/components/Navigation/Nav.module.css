@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 .5rem;
+    border-bottom: 1px solid red;
+    color: #fff;
+    padding-top: 2rem;
+    padding-bottom: .5rem;
+}
+.nav ul{
+    display: flex;
+    
+}
+.nav ul li{
+    list-style: none;
+    margin: .5rem;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+.link:hover,
+.link:active{
+    border-bottom: 1px solid green;
+    color: red;
+}

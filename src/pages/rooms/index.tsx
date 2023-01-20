@@ -1,7 +1,8 @@
 import React from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import RoomListComponent from '@/components/RoomList/RoomList.component';
-const ROOMS = [
+import CenterFindComponent from '@/components/CenterFind/CenterFind.component';
+const ROOMS: IRoomDetails[] = [
     {
         id: 1,
         imageUrl:
@@ -38,11 +39,20 @@ const ROOMS = [
         price: 90,
         roomStatus: true,
     },
+    {
+        id: 5,
+        imageUrl:
+            "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
+        roomNumber: 120,
+        roomType: "SINGLE ROOM",
+        price: 90,
+        roomStatus: true,
+    },
 ];
 function RoomPage() {
     return (
         <div>
-           <h1>Rooms Page</h1>
+            <CenterFindComponent/>
             <RoomListComponent rooms={ROOMS} />
         </div>
     );

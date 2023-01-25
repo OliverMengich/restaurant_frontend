@@ -2,6 +2,7 @@ import React from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import RoomListComponent from '@/components/RoomList/RoomList.component';
 import CenterFindComponent from '@/components/CenterFind/CenterFind.component';
+import FooterComponent from '@/components/footer/Footer.component';
 const ROOMS: IRoomDetails[] = [
     {
         id: 1,
@@ -54,6 +55,7 @@ function RoomPage() {
         <div>
             <CenterFindComponent/>
             <RoomListComponent rooms={ROOMS} />
+            <FooterComponent/>
         </div>
     );
 }

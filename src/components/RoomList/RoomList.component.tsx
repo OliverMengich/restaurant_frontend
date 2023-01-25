@@ -19,16 +19,78 @@ function RoomListComponent({rooms}: IRoomDetails) {
                 <h1>Accommodation</h1>
                 <div className={roomStyles["rooms-container"]}>
                     {rooms.map((room)=>{
-                        return(
-                            <div key={room.id} className={roomStyles["room"]}>
-                                <Image src={room.imageUrl} alt="image1" width={300} height={300} />
-                                <div className={roomStyles["room-info"]}>
-                                    <h3 className={roomStyles["title"]}>{room.roomType}</h3>
-                                    <p>${room.price}</p>
+                        return (
+                            <div key={room.id} className={roomStyles.room}>
+                                <div className={roomStyles.roomImg}>
+                                    <Image
+                                        className={roomStyles.img}
+                                        src={room.imageUrl}
+                                        alt="image1"
+                                        width={300}
+                                        height={300}
+                                    />
+                                    {/* rating div */}
+                                    <div className={roomStyles["rating"]}>
+                                        <h3>{room.roomType}</h3>
+                                        <div className={roomStyles.rating_stars}>
+                                            <Image src="/shaded_star.png" alt="star" width={20} height={20}/>
+                                            <Image src="/shaded_star.png" alt="star" width={20} height={20} />
+                                            <Image
+                                                src="/unshaded_star.png"
+                                                alt="star"
+                                                width={20}
+                                                height={20}
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
-                                <button className={roomStyles["btn"]}>Book Now</button>
+                                <div className={roomStyles["room-info"]}>
+                                    <div className={roomStyles["room-price"]}>
+                                        <div className={roomStyles["title"]}>
+                                            <Image
+                                                src="/people.png"
+                                                alt="star"
+                                                width={20}
+                                                height={20}
+                                            />
+                                            {room.roomNumber} guests
+                                        </div>
+                                        <p>${room.price}</p>
+                                    </div>
+                                    <p style={{margin: '10px 0'}}>Lorem ipsum dolor sit amet.</p>
+                                    <button className={roomStyles["btn"]}>Book Now</button>
+                                    <div className={roomStyles.room_features}>
+                                        <div className={roomStyles.room_feature}>
+                                            <Image
+                                                src="/sleep.png"
+                                                alt="star"
+                                                width={30}
+                                                height={30}
+                                            />
+                                            <Image
+                                                src="/tv.png"
+                                                alt="star"
+                                                width={30}
+                                                height={30}
+                                            />
+                                            <Image
+                                                src="/meal.png"
+                                                alt="star"
+                                                width={30}
+                                                height={30}
+                                            />
+                                            <Image
+                                                src="/bath.png"
+                                                alt="star"
+                                                width={30}
+                                                height={30}
+                                            />
+                                        </div>
+                                        <p>Full Info &rarr;</p>
+                                    </div>
+                                </div>
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </div>

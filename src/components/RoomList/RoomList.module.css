@@ -99,3 +99,8 @@
 .room_feature > *{
     padding: 5px;
 }
+@media screen and (max-width: 830px) {
+    .rooms-container{
+        justify-content: center;
+    }
+}

@@ -21,6 +21,15 @@
 }
 .link:hover,
 .link:active{
-    border-bottom: 1px solid green;
+    border-bottom: 2px solid green;
     color: red;
+}
+@media screen and (max-width: 830px) {
+    /* .nav{
+        border-bottom: none;
+    } */
+    .nav ul{
+        flex-direction: column;
+        display: none;
+    }
 }

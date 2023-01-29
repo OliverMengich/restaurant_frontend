@@ -4,6 +4,7 @@ import RoomListComponent from '@/components/RoomList/RoomList.component';
 import CenterFindComponent from '@/components/CenterFind/CenterFind.component';
 import FooterComponent from '@/components/footer/Footer.component';
 import RoomItemComponent from '@/components/RoomItem/RoomItem.component';
+import Link from 'next/link';
 const ROOMS: IRoomDetails[] = [
     {
         id: 1,

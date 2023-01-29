@@ -5,9 +5,11 @@
     width: 60%;
 }
 .home-body-info .finder{
-    margin: 2rem;
+    margin: auto;
+    text-align: center;
 }
 .select select{
+    text-align: center;
     width: 250px;
     margin: 10px 15px;
     border: 1px solid white;
@@ -18,6 +20,7 @@
 
 }
 .finder input[type="text"]{
+    text-align: center;
     width: 350px;
     outline: none;
     border: 1px solid white;

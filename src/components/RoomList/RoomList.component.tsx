@@ -1,6 +1,7 @@
 import React from 'react';
 import roomStyles from './RoomList.module.css';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 interface Room{
     id: number;
     imageUrl: string;
@@ -32,9 +33,21 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                     {/* rating div */}
                                     <div className={roomStyles["rating"]}>
                                         <h3>{room.roomType}</h3>
-                                        <div className={roomStyles.rating_stars}>
-                                            <Image src="/shaded_star.png" alt="star" width={20} height={20}/>
-                                            <Image src="/shaded_star.png" alt="star" width={20} height={20} />
+                                        <div
+                                            className={roomStyles.rating_stars}
+                                        >
+                                            <Image
+                                                src="/shaded_star.png"
+                                                alt="star"
+                                                width={20}
+                                                height={20}
+                                            />
+                                            <Image
+                                                src="/shaded_star.png"
+                                                alt="star"
+                                                width={20}
+                                                height={20}
+                                            />
                                             <Image
                                                 src="/unshaded_star.png"
                                                 alt="star"
@@ -57,10 +70,16 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                         </div>
                                         <p>${room.price}</p>
                                     </div>
-                                    <p style={{margin: '10px 0'}}>Lorem ipsum dolor sit amet.</p>
-                                    <button className={roomStyles["btn"]}>Book Now</button>
+                                    <p style={{ margin: "10px 0" }}>
+                                        Lorem ipsum dolor sit amet.
+                                    </p>
+                                    <button className={roomStyles["btn"]}>
+                                        Book Now
+                                    </button>
                                     <div className={roomStyles.room_features}>
-                                        <div className={roomStyles.room_feature}>
+                                        <div
+                                            className={roomStyles.room_feature}
+                                        >
                                             <Image
                                                 src="/sleep.png"
                                                 alt="star"
@@ -86,7 +105,12 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                                 height={30}
                                             />
                                         </div>
-                                        <p>Full Info &rarr;</p>
+                                        <p>
+                                            <Link href={{
+                                                pathname: 'rooms/5revfsecc',
+                                                query: {...room}
+                                                }}>Full Info &rarr;</Link>{" "}
+                                        </p>
                                     </div>
                                 </div>
                             </div>

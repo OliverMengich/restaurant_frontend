@@ -3,6 +3,7 @@
     margin: 6em auto 5em;
     width: 60%;
     display: flex;
+    
 }
 .home-body-info h1{
     font-size: 3rem;
@@ -21,6 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 .dish{
     position: relative;
@@ -60,4 +62,9 @@
     width: 150px;
     opacity: .9;
     cursor: pointer;
+}
+@media screen and (max-width: 820px) {
+    .home-body-info{
+        flex-direction: column;
+    }
 }

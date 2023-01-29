@@ -36,3 +36,13 @@
     float: left;
     /* background-color: white; */
 }
+@media  screen and (max-width: 800px) {
+    .footer{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .section{
+        width: 70%;
+    }
+}

@@ -9,10 +9,12 @@ interface Room{
     roomType: string;
     price: number;
     roomStatus: boolean;
+    rating?: number;
 }
 interface IRoomDetails {
     rooms: Room[]
 }
+let ratingArr = [5,3,5,2,6];
 function RoomListComponent({rooms}: IRoomDetails) {
     return (
         <>
@@ -20,6 +22,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                 <h1>Accommodation</h1>
                 <div className={roomStyles["rooms-container"]}>
                     {rooms.map((room)=>{
+                        // ratingArr.length=room.rating;
                         return (
                             <div key={room.id} className={roomStyles.room}>
                                 <div className={roomStyles.roomImg}>
@@ -30,31 +33,25 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                         width={300}
                                         height={300}
                                     />
-                                    {/* rating div */}
                                     <div className={roomStyles["rating"]}>
                                         <h3>{room.roomType}</h3>
-                                        <div
-                                            className={roomStyles.rating_stars}
-                                        >
-                                            <Image
-                                                src="/shaded_star.png"
-                                                alt="star"
-                                                width={20}
-                                                height={20}
-                                            />
-                                            <Image
-                                                src="/shaded_star.png"
-                                                alt="star"
-                                                width={20}
-                                                height={20}
-                                            />
-                                            <Image
-                                                src="/unshaded_star.png"
-                                                alt="star"
-                                                width={20}
-                                                height={20}
-                                            />
-                                        </div>
+                                        {room.rating?(<div className={roomStyles.rating_stars}>
+                                            {
+                                                ratingArr.slice(0,room.rating).map((_,i)=>{
+                                                    return (
+                                                        <h3 key={i}>&#9733;</h3>
+                                                    );
+                                                })
+                                            }{
+                                                ratingArr.slice(room.rating,ratingArr.length).map((_,i)=>{
+                                                    return (
+                                                        <h3 key={i}>
+                                                            &#9734;
+                                                        </h3>
+                                                    );
+                                                })
+                                            }
+                                        </div>):''}
                                     </div>
                                 </div>
                                 <div className={roomStyles["room-info"]}>

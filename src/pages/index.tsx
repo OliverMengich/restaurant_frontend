@@ -42,6 +42,7 @@ const ROOMS = [
         roomType: "TWO ROOM",
         price: 150.99,
         roomStatus: true,
+        
     },
     {
         id: 2,

@@ -9,9 +9,7 @@ interface Props {
 function handleImageSwitch(imageUrl: string, e: React.MouseEvent<HTMLImageElement, MouseEvent>){
     // switch image on click
     console.log(e);
-    const roomImage = document.querySelector('.room_image') as HTMLImageElement;
-    // roomImage.target.data-loaded- = imageUrl;
-    console.log(roomImage);
+    
 }
 function RoomDetail({room}: Props) {
     const router = useRouter();
@@ -57,7 +55,7 @@ function RoomDetail({room}: Props) {
                         /<span>Home</span>/<span>rooms</span>/<span>room</span>
                     </p>
                 </div>
-                <h1>Room 1</h1>
+                <h1>{roomdata.roomType}</h1>
                 <div className={roomDescStyles["rating"]}>
                     <div className={roomDescStyles.rating_stars}>
                         <Image
@@ -87,17 +85,10 @@ function RoomDetail({room}: Props) {
                         (4.5 rating (100 reviews))
                     </div>
                 </div>
-                <h1 className={roomDescStyles.price}>
-                    {Intl.NumberFormat("de-DE", {
-                        currency: "USD",
-                        style: "currency",
-                    }).format(400)}
-                </h1>
+                <h1 className={roomDescStyles.price}>${roomdata.price} per night</h1>
                 <h3>Description</h3>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Doloremque quisquam vel minima obcaecati a distinctio
-                    aliquam minus ut totam accusamus.
+                    A classy room to spend  your nice with friends and family
                 </p>
                 <div className={roomDescStyles.room_features}>
                     <h3>Features</h3>

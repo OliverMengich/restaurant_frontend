@@ -14,6 +14,7 @@ const ROOMS: IRoomDetails[] = [
         roomType: "TWO ROOM",
         price: 150.99,
         roomStatus: true,
+        rating: 5,
     },
     {
         id: 2,
@@ -23,6 +24,7 @@ const ROOMS: IRoomDetails[] = [
         roomType: "SINGLE ROOM",
         price: 74.99,
         roomStatus: true,
+        rating: 4.5,
     },
     {
         id: 3,
@@ -32,6 +34,7 @@ const ROOMS: IRoomDetails[] = [
         roomType: "TWO ROOM",
         price: 100,
         roomStatus: true,
+        rating: 4.3,
     },
     {
         id: 4,
@@ -41,6 +44,7 @@ const ROOMS: IRoomDetails[] = [
         roomType: "SINGLE ROOM",
         price: 90,
         roomStatus: true,
+        rating: 3.5,
     },
     {
         id: 5,
@@ -50,6 +54,7 @@ const ROOMS: IRoomDetails[] = [
         roomType: "SINGLE ROOM",
         price: 90,
         roomStatus: true,
+        rating: 4,
     },
 ];
 function RoomPage() {

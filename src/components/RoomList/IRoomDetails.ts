@@ -1,6 +1,6 @@
 export interface IRoomDetails {
     id: number;
-    imageUrl: string | any;
+    imageUrl: string;
     roomNumber: number;
     roomType: string;
     price: number;

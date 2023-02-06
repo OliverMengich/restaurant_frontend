@@ -3,6 +3,7 @@ import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import bg from "../../assets/img.png";
 interface Props {
     room: IRoomDetails
 }
@@ -122,7 +123,6 @@ function RoomDetail({room}: Props) {
                 <div className={roomDescStyles.room_actions}>
                     <button className={roomDescStyles["bookroom_action-btn"]}>
                         Book Now
-                        {/* lightening icon flaticon */}
                         <Image
                             src="/lightning.png"
                             alt="star"
@@ -152,6 +152,25 @@ function RoomDetail({room}: Props) {
             </div>
         </div>
     );
+}
+// export async function getStaticPaths() {
+//     const res = await fetch('http://localhost:3000/api/rooms');
+//     const rooms = await res.json();
+//     const paths = rooms.map((room: IRoomDetails) => ({
+//         params: { id: room.id.toString() },
+//     }));
+//     return { paths, fallback: false };
+// }
+export async function getStaticProps({ params }: any) {
+    console.log("params", params);
+    
+    // const res = await fetch(`http://localhost:3000/api/room/${params.id}`);
+    // const room = await res.json();
+    // return {
+    //     props: {
+    //         room,
+    //     },
+    // };
 }
 
 export default RoomDetail;

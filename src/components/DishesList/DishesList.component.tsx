@@ -3,9 +3,10 @@ import dishesListStyles from './DishesList.module.css';
 import Image, { StaticImageData } from 'next/image';
 interface Dish{
     id: number,
-    imageUrl: StaticImageData,
+    imageUrl: string,
     name: string,
-    price: number
+    price: number,
+    description: string,
 }
 interface DishesListProps{
     dishes: Dish[]
@@ -13,31 +14,6 @@ interface DishesListProps{
 function DishesListComponent({dishes}: DishesListProps) {
     return (
         <>
-            <div className={dishesListStyles["home-body-info"]}>
-                <div style={{float: 'left'}}>
-                    <h1>
-                        <span style={{ color: "yellow" }}>L&apos;Assiette</span>{" "}
-                        Restaurant
-                    </h1>
-                    <p style={{ fontSize: "20px" }}>
-                        Come taste the best Friench dishes from Quiche Lorraine,
-                        Salmon en papillote Prepared by{" "}
-                        <span style={{ color: "yellow" }}>
-                            Chef Hélène Darrozet
-                        </span>
-                        ,
-                        <span style={{ color: "yellow" }}>Anne-Sophie Pic</span>{" "}
-                        and Many More
-                    </p>
-                </div>
-                <Image
-                style={{borderRadius: '50%', float: 'right', border: '2px solid #fff'}}
-                    src='/b1.jpg'
-                    alt="image1"
-                    width={300}
-                    height={300}
-                />
-            </div>
             <div className={dishesListStyles["dishes-section"]}>
                 <h1>Highly Rated Dishes</h1>
                 <div className={dishesListStyles["dishes-container"]}>
@@ -54,6 +30,21 @@ function DishesListComponent({dishes}: DishesListProps) {
                                     {dish.name}
                                 </h3>
                                 <p>${dish.price}</p>
+                            </div>
+                            <p>{dish.description}</p>
+                            <div className={dishesListStyles.dishes_action}>
+                                <button className={dishesListStyles.btn}>
+                                    Order
+                                </button>
+                                <button className={dishesListStyles["cart-btn"]}>
+                                    <Image
+                                        src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png"
+                                        alt="star"
+                                        width={20}
+                                        height={20}
+                                    />
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     ))}

@@ -25,7 +25,10 @@ function NavComponent() {
                     <Link className={navStyles.link} href="/contact">Contact</Link>
                 </li>
                 <li>
-                    <Link className={navStyles.link} href="/login">Login/Register</Link>
+                    <Link className={navStyles.link} href="/auth">Login/Register</Link>
+                </li>
+                <li>
+                    <Link className={navStyles.link} href="/cart">Cart</Link>
                 </li>
             </ul>
         </div>

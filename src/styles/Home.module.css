@@ -1,3 +1,16 @@
+.home-body-info{
+    color: white;
+    margin: 6em auto 5em;
+    width: 60%;
+    display: flex;
+    
+}
+.home-body-info img{
+    animation: spin 4s linear infinite;
+}
+.home-body-info h1{
+    font-size: 3rem;
+}
 .main {
   display: flex;
   flex-direction: column;

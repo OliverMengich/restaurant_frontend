@@ -40,7 +40,7 @@ const SignUpForm = ()=>{
                     name="confirmPassword"
                     type="password"
                 />
-                <Button >Sign Up</Button>
+                <Button>Sign Up</Button>
             </form>
         </div>
     )

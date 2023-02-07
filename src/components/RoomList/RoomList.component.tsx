@@ -1,6 +1,6 @@
 import React from 'react';
 import roomStyles from './RoomList.module.css';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 interface Room{
     id: number;
@@ -22,7 +22,6 @@ function RoomListComponent({rooms}: IRoomDetails) {
                 <h1>Accommodation</h1>
                 <div className={roomStyles["rooms-container"]}>
                     {rooms.map((room)=>{
-                        // ratingArr.length=room.rating;
                         return (
                             <div key={room.id} className={roomStyles.room}>
                                 <div className={roomStyles.roomImg}>
@@ -74,9 +73,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                         Book Now
                                     </button>
                                     <div className={roomStyles.room_features}>
-                                        <div
-                                            className={roomStyles.room_feature}
-                                        >
+                                        <div className={roomStyles.room_feature}>
                                             <Image
                                                 src="/sleep.png"
                                                 alt="star"

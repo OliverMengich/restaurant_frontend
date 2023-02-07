@@ -1,3 +1,4 @@
+import RoomListComponent from '@/components/RoomList/RoomList.component';
 import React from 'react';
 
 function ConferenceRooms() {

@@ -12,11 +12,11 @@ const BUTTON_TYPES_CLASSES: btnDef ={
 type ButtonProps={
     children: ReactNode;
     buttonType?: keyof btnDef;
-    type: ButtonHTMLAttributes<HTMLButtonElement>
+    // type: ButtonHTMLAttributes<HTMLButtonElement>
 }
-const Button = ({children, buttonType, type,...otherProps}: ButtonProps)=>{
+const Button = ({children, buttonType,...otherProps}: ButtonProps)=>{
     return(
-        <button className={buttonStyles[`button-container ${buttonType? BUTTON_TYPES_CLASSES[buttonType]:''}`]} {...otherProps}>
+        <button type="submit" className={buttonStyles[`button-container ${buttonType? BUTTON_TYPES_CLASSES[buttonType]:''}`]} {...otherProps}>
             {children}
         </button>
     )

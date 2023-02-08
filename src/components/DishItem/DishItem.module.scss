@@ -1,0 +1,63 @@
+.dish{
+    position: relative;
+    width: 300px;
+    text-align: center;
+    height: 400px;
+    color: white;
+    margin: 0 15px; 
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.dish img{
+    position: absolute;
+    width: 100%;
+    align-self: center;
+    // height: 70%;
+    border-radius: 50%;
+    text-align: center;
+}
+// .dish-info{
+//     width: 100%;
+//     margin: 10px 0;
+//     position: absolute;
+//     display: flex;
+//     justify-content: space-around;
+//     bottom: 0;
+//     z-index: 1;
+// }
+.dish-info .title{
+    color: white;
+}
+.dishes_action{
+    display: flex;
+    align-items: center;
+    padding: .5rem 1rem;
+    border-top: 1px solid #ccc;
+}
+.btn{
+    background: red;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 150px;
+    opacity: .9;
+    cursor: pointer;
+}
+.btn::after{
+    background-image: url('/public/lightening.png');
+    background-size: 20px;
+}
+.cart-btn{
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-align: center;
+    margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

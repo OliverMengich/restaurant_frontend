@@ -8,12 +8,14 @@ import RoomListComponent from '@/components/RoomList/RoomList.component';
 import FooterComponent from '@/components/footer/Footer.component';
 import Image from 'next/image';
 import homeBodyStyles from '../styles/Home.module.css';
-const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string}[] = [
+import CategoriesComponent from '@/components/Categories/Categories.component';
+const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number}[] = [
   	{
 		id: 1,
 		imageUrl: image11.src,
 		name:'Beef Stew',
 		price: 5.99,
+        rating: 4,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
   	},
   	{
@@ -21,6 +23,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		imageUrl: image12.src,
 		name:'Carrot Fries',
 		price: 4.99,
+        rating: 4,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
   	},
 	{
@@ -28,6 +31,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		imageUrl: image13.src,
 		name:'Fried Bananas',
 		price: 2.99,
+        rating: 5,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
 	},
 	{
@@ -35,6 +39,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		imageUrl: image14.src,
 		name:'Grilled Meat',
 		price: 9.99,
+        rating: 3,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
 	}
 ]
@@ -113,7 +118,8 @@ export default function Home() {
                     height={300}
                 />
             </div>
-          <DishesListComponent dishes={DISHES} />
+          {/* <DishesListComponent dishes={DISHES} /> */}
+          <CategoriesComponent dishes={DISHES}/>
           <RoomListComponent rooms={ROOMS} />
           <FooterComponent />
       </>

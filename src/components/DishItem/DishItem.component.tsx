@@ -1,5 +1,5 @@
 import React from 'react';
-import dishesListStyles from './DishesList.module.css';
+import dishesListStyles from './DishItem.module.scss';
 import Image from 'next/image';
 import RatingComponent from '../RatingComponent/Rating.component';
 interface Dish{
@@ -20,14 +20,14 @@ function DishItem({dish}: DishItemProps) {
                 <Image
                     src={dish.imageUrl}
                     alt="image1"
-                    width={100}
-                    height={100}
+                    width={200}
+                    height={200}
                 />
                 <h3 className={dishesListStyles["title"]}>
                     {dish.name}
                 </h3>
                 <RatingComponent rating={dish.rating} />
-                <p>{dish.description}</p>
+                <p>{dish.description.slice(0,50)}</p>
                 {/* <div className={dishesListStyles["dish-info"]}>
                     <h3 className={dishesListStyles["title"]}>
                         {dish.name}
@@ -38,14 +38,14 @@ function DishItem({dish}: DishItemProps) {
                     {/* <button className={dishesListStyles.btn}>
                         Order
                     </button> */}
-                    <p>${dish.price}</p>
+                    <h3>${dish.price}</h3>
                     <button className={dishesListStyles["cart-btn"]}>
-                        <Image
+                        {/* <Image
                             src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png"
                             alt="star"
                             width={20}
                             height={20}
-                        />
+                        /> */}
                         Add to Cart
                     </button>
                 </div>

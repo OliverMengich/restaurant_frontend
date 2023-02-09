@@ -1,17 +1,18 @@
 .dish{
+    padding: .5rem;
     position: relative;
     width: 300px;
     text-align: center;
     height: 400px;
-    color: white;
+    color: black;
     margin: 0 15px; 
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dish img{
-    position: absolute;
-    width: 100%;
+    // position: absolute;
+    // width: 100%;
     align-self: center;
     // height: 70%;
     border-radius: 50%;
@@ -30,9 +31,11 @@
     color: white;
 }
 .dishes_action{
+    width: 100%;
     display: flex;
     align-items: center;
-    padding: .5rem 1rem;
+    justify-content: space-between;
+    padding: .5rem 0;
     border-top: 1px solid #ccc;
 }
 .btn{
@@ -50,14 +53,17 @@
     background-size: 20px;
 }
 .cart-btn{
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    background: orange;
+    font-weight: bold;
+    // font-size: 10px;
+    border: 1px solid orange;
     padding: .5rem 1rem;
     cursor: pointer;
     transition: all .3s ease;
     text-align: center;
-    margin: .5rem;
+    // margin: .5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
 }

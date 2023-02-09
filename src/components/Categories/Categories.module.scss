@@ -1,0 +1,36 @@
+.categories{
+    width: 100%;
+    // padding: .5rem 1rem;
+    // background-color: white;
+    .sections{
+        display: flex;
+        justify-content: space-around;
+        .selected-section{
+            width: 100%;
+            display: block;
+        }
+        .btn{
+            background: none;
+            width: 150px;
+            padding: .5rem .5rem;
+            border: 1px solid orange;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .selected{
+            background: orange;
+            color: white;
+            width: 100px;
+            font-weight: bold;
+            padding: .5rem .5rem;
+            border: 1px solid orange;
+            border-radius: 20px;
+        }
+        .section{
+            width: 0%;
+            display: none;
+            
+            
+        }
+    }
+}

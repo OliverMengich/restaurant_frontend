@@ -12,8 +12,9 @@
     font-size: 3rem;
 }
 .dishes-section{
-    background: linear-gradient(-45deg, #aaffa9, #11ffbd, #87f786, #07f9b6);;
-    padding: 2rem 0;
+    /* border-top:1px solid #ccc; */
+    padding: .5rem;
+    background-color: #f5f5f5;
 }
 .dishes-section h1{
     font-size: 2rem;
@@ -21,7 +22,7 @@
     margin-bottom: 2rem;
 }
 .dishes-container{
-    /* padding: 2rem; */
+    padding: 2rem 0;
     display: flex;
     /* justify-content: center; */
     align-items: center;

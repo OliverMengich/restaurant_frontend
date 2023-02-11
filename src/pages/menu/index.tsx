@@ -1,9 +1,10 @@
+import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
 import React from 'react';
 
 function MenuPage() {
     return (
         <div>
-            <h1>This is the Menu Page</h1>
+            <PageInfoComponent title='Menu Page' path='Menu'/>
         </div>
     );
 }

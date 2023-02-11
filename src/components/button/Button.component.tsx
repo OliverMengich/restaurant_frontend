@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import buttonStyles from './button.module.scss';
+import clsx from 'clsx';
 //  inverted button, default button, google sign in button
 type btnDef = {
     google: string;
@@ -11,12 +12,15 @@ const BUTTON_TYPES_CLASSES: btnDef ={
 }
 type ButtonProps={
     children: ReactNode;
-    buttonType?: keyof btnDef;
-    // type: ButtonHTMLAttributes<HTMLButtonElement>
+    buttonType: keyof btnDef;
+    type?: "submit"|"button"
 }
-const Button = ({children, buttonType,...otherProps}: ButtonProps)=>{
+
+// buttonStyles[`button-container ${buttonType? BUTTON_TYPES_CLASSES[buttonType]:''}`]
+const Button = ({children,type="button", buttonType,...otherProps}: ButtonProps)=>{
     return(
-        <button type="submit" className={buttonStyles[`button-container ${buttonType? BUTTON_TYPES_CLASSES[buttonType]:''}`]} {...otherProps}>
+        <button type={type} className={clsx("button-container",{[BUTTON_TYPES_CLASSES[buttonType]]: BUTTON_TYPES_CLASSES[buttonType]},'')} 
+        {...otherProps}>
             {children}
         </button>
     )

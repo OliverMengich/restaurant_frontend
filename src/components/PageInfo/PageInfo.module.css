@@ -2,6 +2,7 @@
     width: 100%;
     text-align: center;
     height: 30vh;
+    padding: 2rem 0;
     background-color: rgba(0, 0, 0, .75);
 }
 .pageInfo h2{
@@ -14,7 +15,7 @@
 .pageInfo p{
     font-size: 1rem;
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.5;
     color: white;
     letter-spacing: .5px;

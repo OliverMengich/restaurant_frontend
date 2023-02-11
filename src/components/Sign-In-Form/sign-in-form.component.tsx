@@ -21,8 +21,8 @@ const SignInForm = ()=>{
                     />
                 {/* <button type="submit">Sign Up</button> */}
                 <div className={signInStyles["buttons-container"]}>
-                <Button>Sign In</Button>
-                <Button  buttonType='google'>Sign IN with Google</Button>
+                <Button buttonType="inverted">Sign In</Button>
+                <Button type="submit"  buttonType="google">Sign In with Google</Button>
                 </div>
             </form>
         </div>

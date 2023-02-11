@@ -9,9 +9,9 @@ function NavComponent() {
                 <li>
                     <Link className={navStyles.link} href="/">Home</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link className={navStyles.link} href="/menu">Menu</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link className={navStyles.link} href="/rooms">Rooms</Link>
                 </li>

@@ -29,15 +29,15 @@ const ROOMS: IRoomDetails[] = [
     {
         id: 3,
         imageUrl:
-            "https://i.pinimg.com/564x/94/53/bd/9453bd6e4ea22a9eccb6c0410c788a31.jpg",
-        roomNumber: 102,
+            "
         roomType: "TWO ROOM",
         price: 100,
         roomStatus: true,
         rating: 4.3,
     },
     {
-        id: 4,
+        id: 4,https://i.pinimg.com/564x/94/53/bd/9453bd6e4ea22a9eccb6c0410c788a31.jpg",
+        roomNumber: 102,
         imageUrl:
             "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
         roomNumber: 103,
@@ -58,6 +58,7 @@ const ROOMS: IRoomDetails[] = [
     },
 ];
 function RoomPage() {
+
     return (
         <div>
             <CenterFindComponent/>
@@ -66,6 +67,16 @@ function RoomPage() {
             <FooterComponent/>
         </div>
     );
+}
+export async function getStaticProps() {
+    const res = await fetch("https://lassiette-api.onrender.com/api/rooms");
+    const {rooms} = await res.json();
+    console.log(rooms);
+    return {
+        props: {
+            rooms,
+        },
+    };
 }
 
 export default RoomPage;

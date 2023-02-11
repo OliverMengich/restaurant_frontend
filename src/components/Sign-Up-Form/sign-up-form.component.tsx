@@ -10,8 +10,7 @@ const SignUpForm = ()=>{
             <span>Sign Up with your Email and Password</span>
             <form>
                 <FormInput 
-                    label="First Name" 
-                    required 
+                    label="First Name"
                     type="text"
                     name="firstName" />
                 <FormInput 
@@ -40,7 +39,7 @@ const SignUpForm = ()=>{
                     name="confirmPassword"
                     type="password"
                 />
-                <Button>Sign Up</Button>
+                <Button buttonType="inverted" type="button">Sign Up</Button>
             </form>
         </div>
     )

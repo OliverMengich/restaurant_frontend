@@ -1,14 +1,19 @@
+import { FC, InputHTMLAttributes } from 'react';
 import formInputStyles from './form-input.module.scss';
-type FormInputData={
+interface FormInputData extends InputHTMLAttributes<HTMLInputElement>{
     label: string;
+    required?: boolean
+    name?: string
+    value?: string
+    onChange?: ()=>void
 }
-const FormInput = ({ label,...otherProps })=>{
+const FormInput: FC<FormInputData> = ({ label,...otherProps }: FormInputData)=>{
     return(
         <div className={formInputStyles.group}>
-            <input className={formInputStyles["form-input"]} {...otherProps} />
+            <input required className={formInputStyles["form-input"]} {...otherProps} />
             {
                 label?(
-                    <label className={formInputStyles[`${otherProps.value.length ?'shrink':''} form-input-label`]}>{label}</label>
+                    <label className={formInputStyles[`${otherProps.value?.length ?'shrink':''} form-input-label`]}>{label}</label>
                 ):''
             }
                     

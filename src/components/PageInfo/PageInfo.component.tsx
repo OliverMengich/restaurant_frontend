@@ -9,7 +9,7 @@ function PageInfoComponent(props:PageInfoDetails) {
     return (
         <div className={pageInfoStyles.pageInfo}>
             <h2>{props.title}</h2>
-            <p><Link href='/'>Home</Link> &nbsp;&nbsp;»&nbsp;&nbsp;Contact page</p>
+            <p><Link href='/'>Home</Link> &nbsp;&nbsp;»&nbsp;&nbsp; {props.path} </p>
         </div>
     );
 }

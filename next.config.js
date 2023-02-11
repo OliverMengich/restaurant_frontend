@@ -10,6 +10,8 @@ module.exports = {
             "cdn-icons-png.flaticon.com",
             "i.pinimg.com",
             "demo.w3layouts.com",
+            "pngimg.com",
+            "th.bing.com",
         ],
     },
 };

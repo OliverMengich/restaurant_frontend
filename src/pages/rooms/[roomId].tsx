@@ -22,7 +22,7 @@ function RoomDetail({room}: Props) {
             <div className={roomDescStyles["room-desc-img"]}>
                 <div className={roomDescStyles["room_image"]}>
                     <Image
-                        src={roomdata.imageUrl}
+                        src={room.imageUrl}
                         alt="a room"
                         width={700}
                         height={400}
@@ -56,7 +56,7 @@ function RoomDetail({room}: Props) {
                         /<span>Home</span>/<span>rooms</span>/<span>room</span>
                     </p>
                 </div>
-                <h1>{roomdata.roomType}</h1>
+                <h1>{room.roomType}</h1>
                 <div className={roomDescStyles["rating"]}>
                     <div className={roomDescStyles.rating_stars}>
                         <Image
@@ -86,7 +86,7 @@ function RoomDetail({room}: Props) {
                         (4.5 rating (100 reviews))
                     </div>
                 </div>
-                <h1 className={roomDescStyles.price}>${roomdata.price} per night</h1>
+                <h1 className={roomDescStyles.price}>${room.price} per night</h1>
                 <h3>Description</h3>
                 <p>
                     A classy room to spend  your nice with friends and family
@@ -163,14 +163,13 @@ function RoomDetail({room}: Props) {
 // }
 export async function getStaticProps({ params }: any) {
     console.log("params", params);
-    
-    // const res = await fetch(`http://localhost:3000/api/room/${params.id}`);
-    // const room = await res.json();
-    // return {
-    //     props: {
-    //         room,
-    //     },
-    // };
+    const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
+    const {room} = await res.json();
+    return {
+        props: {
+            room,
+        },
+    };
 }
 
 export default RoomDetail;

@@ -12,7 +12,7 @@ import CategoriesComponent from '@/components/Categories/Categories.component';
 const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number}[] = [
   	{
 		id: 1,
-		imageUrl: image11.src,
+		imageUrl: 'https://pngimg.com/uploads/turkey_food/turkey_food_PNG2.png',
 		name:'Beef Stew',
 		price: 5.99,
         rating: 4,
@@ -20,7 +20,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
   	},
   	{
 		id: 2,
-		imageUrl: image12.src,
+		imageUrl: "https://th.bing.com/th/id/R.acc50f9c1272cc7cd201f1638a64de15?rik=BafpBIY1EsK0rg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fturkey_food%2fturkey_food_PNG1.png&ehk=oYRTgwR1nB11822fb1CkJS9oFCIujCDy841D1koY7Ww%3d&risl=&pid=ImgRaw&r=0",
 		name:'Carrot Fries',
 		price: 4.99,
         rating: 4,
@@ -36,7 +36,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 	},
 	{
 		id: 4,
-		imageUrl: image14.src,
+		imageUrl: "https://th.bing.com/th/id/R.62deafa7b1ef7c13ade024cb6149e498?rik=ff98YApwm3%2ft1g&riu=http%3a%2f%2fpngimg.com%2fuploads%2fturkey_food%2fturkey_food_PNG27.png&ehk=2GY2xpfjSHWWYNsRp4nLRaW0h1fUT8C0rO9RBMtw2L4%3d&risl=&pid=ImgRaw&r=0",
 		name:'Grilled Meat',
 		price: 9.99,
         rating: 3,
@@ -82,7 +82,10 @@ const ROOMS = [
     },
 ];
 export default function Home() {
-  return (
+    function changeDisplayCategory(e: any, category: string) {
+        
+    }
+    return (
       <>
           <Head>
               <title>L&apos;Assiette Restaurant</title>
@@ -119,9 +122,9 @@ export default function Home() {
                 />
             </div>
           {/* <DishesListComponent dishes={DISHES} /> */}
-          <CategoriesComponent dishes={DISHES}/>
+          <CategoriesComponent buttonClick={()=>{}} dishes={DISHES}/>
           <RoomListComponent rooms={ROOMS} />
           <FooterComponent />
       </>
-  );
+    );
 }

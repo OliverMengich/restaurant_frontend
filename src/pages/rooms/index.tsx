@@ -28,19 +28,17 @@ const ROOMS: IRoomDetails[] = [
     },
     {
         id: 3,
-        imageUrl:
-            "
+        imageUrl: "https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg",
         roomType: "TWO ROOM",
         price: 100,
+        roomNumber: 105,
         roomStatus: true,
         rating: 4.3,
     },
     {
-        id: 4,https://i.pinimg.com/564x/94/53/bd/9453bd6e4ea22a9eccb6c0410c788a31.jpg",
+        id: 4,
         roomNumber: 102,
-        imageUrl:
-            "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
-        roomNumber: 103,
+        imageUrl: "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
         roomType: "SINGLE ROOM",
         price: 90,
         roomStatus: true,
@@ -48,8 +46,7 @@ const ROOMS: IRoomDetails[] = [
     },
     {
         id: 5,
-        imageUrl:
-            "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
+        imageUrl: "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
         roomNumber: 120,
         roomType: "SINGLE ROOM",
         price: 90,

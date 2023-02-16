@@ -8,8 +8,7 @@ import Link from 'next/link';
 const ROOMS: IRoomDetails[] = [
     {
         id: 1,
-        imageUrl:
-            "https://i.pinimg.com/564x/bb/5b/c1/bb5bc13f084d668ad95f432efba0d97d.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/bb/5b/c1/bb5bc13f084d668ad95f432efba0d97d.jpg"],
         roomNumber: 100,
         roomType: "TWO ROOM",
         price: 150.99,
@@ -18,8 +17,7 @@ const ROOMS: IRoomDetails[] = [
     },
     {
         id: 2,
-        imageUrl:
-            "https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg"],
         roomNumber: 101,
         roomType: "SINGLE ROOM",
         price: 74.99,
@@ -28,7 +26,7 @@ const ROOMS: IRoomDetails[] = [
     },
     {
         id: 3,
-        imageUrl: "https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg"],
         roomType: "TWO ROOM",
         price: 100,
         roomNumber: 105,
@@ -38,7 +36,7 @@ const ROOMS: IRoomDetails[] = [
     {
         id: 4,
         roomNumber: 102,
-        imageUrl: "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg"],
         roomType: "SINGLE ROOM",
         price: 90,
         roomStatus: true,
@@ -46,7 +44,7 @@ const ROOMS: IRoomDetails[] = [
     },
     {
         id: 5,
-        imageUrl: "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg"],
         roomNumber: 120,
         roomType: "SINGLE ROOM",
         price: 90,
@@ -71,7 +69,7 @@ export async function getStaticProps() {
     console.log(rooms);
     return {
         props: {
-            rooms,
+            rooms: rooms as IRoomDetails,
         },
     };
 }

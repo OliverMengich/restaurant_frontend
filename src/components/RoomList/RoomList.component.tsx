@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 interface Room{
     id: number;
-    imageUrl: string;
+    imageUrl: string[] ;
     roomNumber: number;
     roomType: string;
     price: number;
@@ -27,7 +27,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                 <div className={roomStyles.roomImg}>
                                     <Image
                                         className={roomStyles.img}
-                                        src={room.imageUrl}
+                                        src={room.imageUrl[0]}
                                         alt="image1"
                                         width={300}
                                         height={300}

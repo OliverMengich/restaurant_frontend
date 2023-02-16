@@ -3,7 +3,7 @@ import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import bg from "../../assets/img.png";
+// import bg from "../../assets/img.png";
 interface Props {
     room: IRoomDetails
 }
@@ -22,7 +22,7 @@ function RoomDetail({room}: Props) {
             <div className={roomDescStyles["room-desc-img"]}>
                 <div className={roomDescStyles["room_image"]}>
                     <Image
-                        src={room.imageUrl}
+                        src={room.imageUrl[0]}
                         alt="a room"
                         width={700}
                         height={400}

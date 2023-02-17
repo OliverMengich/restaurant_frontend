@@ -9,6 +9,7 @@ import FooterComponent from '@/components/footer/Footer.component';
 import Image from 'next/image';
 import homeBodyStyles from '../styles/Home.module.css';
 import CategoriesComponent from '@/components/Categories/Categories.component';
+import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number}[] = [
   	{
 		id: 1,
@@ -43,42 +44,51 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
 	}
 ]
-const ROOMS = [
+const ROOMS: IRoomDetails[] = [
     {
         id: 1,
-        imageUrl:
-            "https://i.pinimg.com/564x/bb/5b/c1/bb5bc13f084d668ad95f432efba0d97d.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/bb/5b/c1/bb5bc13f084d668ad95f432efba0d97d.jpg","https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog2.jpg"],
         roomNumber: 100,
         roomType: "TWO ROOM",
         price: 150.99,
         roomStatus: true,
-        
+        rating: 5,
     },
     {
         id: 2,
-        imageUrl:
-            "https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg",
+        imageUrl: ["https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg","https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog2.jpg"],
         roomNumber: 101,
         roomType: "SINGLE ROOM",
         price: 74.99,
         roomStatus: true,
+        rating: 4.5,
     },
     {
         id: 3,
-        imageUrl:
-            "https://i.pinimg.com/564x/94/53/bd/9453bd6e4ea22a9eccb6c0410c788a31.jpg",
-        roomNumber: 102,
+        imageUrl: ["https://i.pinimg.com/564x/5d/15/2b/5d152b2f20d9e1dc991b72d1be619cb4.jpg","https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog2.jpg"],
         roomType: "TWO ROOM",
         price: 100,
+        roomNumber: 105,
         roomStatus: true,
+        rating: 4.3,
     },
     {
         id: 4,
-        imageUrl: "https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg",
-        roomNumber: 103,
+        roomNumber: 102,
+        imageUrl: ["https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg","https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog1.jpg"],
         roomType: "SINGLE ROOM",
         price: 90,
         roomStatus: true,
+        rating: 3.5,
+    },
+    {
+        id: 5,
+        imageUrl: ["https://i.pinimg.com/564x/39/9d/f6/399df63697b22c507bbf1e9c4f2b9972.jpg","https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog1.jpg"],
+        roomNumber: 120,
+        roomType: "SINGLE ROOM",
+        price: 90,
+        roomStatus: true,
+        rating: 4,
     },
 ];
 export default function Home() {

@@ -28,7 +28,20 @@ function RoomDetail({room}: Props) {
                         height={400}
                     />
                 </div>
-                <div className={roomDescStyles["room_otherImages"]}>
+        v className={roomDescStyles["room_otherImages"]}>
+                    {
+                        room.imageUrl.map((img,i)=>{
+                            return (
+                                <Image key={i}
+                                    onClick={(e)=>handleImageSwitch(img,e)}
+                                    src={img}
+                                    alt="hello image"
+                                    width={100}
+                                    height={100}
+                                />
+                            )
+                        })
+                    }
                     <Image
                         onClick={e => handleImageSwitch('https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog2.jpg', e)}
                         src="https://demo.w3layouts.com/demos_new/template_demo/28-03-2020/hotels-liberty-demo_Free/1275019035/web/assets/images/blog2.jpg"
@@ -153,23 +166,23 @@ function RoomDetail({room}: Props) {
         </div>
     );
 }
-// export async function getStaticPaths() {
-//     const res = await fetch('http://localhost:3000/api/rooms');
-//     const rooms = await res.json();
-//     const paths = rooms.map((room: IRoomDetails) => ({
-//         params: { id: room.id.toString() },
-//     }));
-//     return { paths, fallback: false };
-// }
-export async function getStaticProps({ params }: any) {
-    console.log("params", params);
-    const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
-    const {room} = await res.json();
-    return {
-        props: {
-            room,
-        },
-    };
+export async function getStaticPaths() {
+    // const router = useRouter();
+    // const roomdata = router.query;
+    const res = await fetch('https://lassiette-api.onrender.com/api/rooms/${params.id}');
+    const room = await res.json();
+
+    return { props: room as IRoomDetails };
 }
+// export async function getStaticProps({ params }: any) {
+//     console.log("params", params);
+//     const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
+//     const {room} = await res.json();
+//     return {
+//         props: {
+//             room,
+//         },
+//     };
+// }
 
 export default RoomDetail;

@@ -16,13 +16,19 @@ function CategoriesComponent({dishes, buttonClick}:CategoriesProp ) {
             </div>
             <div className={categoriesListsStyles.sections}>
                 <div className={categoriesListsStyles.section}>
-                    {
-                        Object.keys(dishes).map((category,id) => (
-                            <div key={id} className={id===2? categoriesListsStyles['selected-section'] : categoriesListsStyles.section}>
-                                <DishesListComponent key={category} dishes={dishes} />
-                            </div>
-                        ))
-                    }
+                    <DishesListComponent dishes={dishes}/>
+                </div>
+                <div className={categoriesListsStyles.section}>
+                    <DishesListComponent dishes={dishes}/>
+                </div>
+                <div className={categoriesListsStyles["selected-section"]}>
+                    <DishesListComponent dishes={dishes}/>
+                </div>
+                <div className={categoriesListsStyles.section}>
+                    <DishesListComponent dishes={dishes}/>
+                </div>
+                <div className={categoriesListsStyles.section}>
+                    <DishesListComponent dishes={dishes}/>
                 </div>
             </div>
         </div>

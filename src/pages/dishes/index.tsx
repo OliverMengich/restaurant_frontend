@@ -2,16 +2,26 @@ import { useState } from 'react';
 // import React {useState} from 'react';
 import DishesListComponent from '@/components/DishesList/DishesList.component';
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
+enum Category{
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+    'Snacks',
+    'Drinks',
+    'Desserts',
+}
 type Dish={
     id: number,
     imageUrl: string ,
     name: string,
     price: number,
     description: string,
-    rating: number
+    rating: number,
+    category: Category
 }
+
 interface DishesPageProps{
-    data: Dish[]
+    data: {[key: string]:Dish[]}
 }
 function Dishes({ data}: DishesPageProps) {
     const [mydish, setDishes] = useState(data);
@@ -26,12 +36,18 @@ function Dishes({ data}: DishesPageProps) {
 }
 // fetch dishes from api
 export async function getStaticProps() {
+    let newDishes={};
     const res = await fetch('https://lassiette-api.onrender.com/api/dishes');
-    const {dishes} = await res.json();
-    console.log(dishes);
+    let {dishes} = await res.json();
+    for (const category of Object.keys(Category)) {
+        Object.assign(newDishes, {
+            [category]: dishes.filter((dish: Dish) => dish.category === Category[category as keyof typeof Category]),
+        });
+    }
+    console.log(newDishes);
     return {
         props: {
-            data: dishes,
+            data: newDishes,
         },
     };
 }

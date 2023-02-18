@@ -5,4 +5,13 @@ export interface Dish {
     price: number;
     description: string;
     rating: number;
+    category: Category;
+}
+export enum Category{
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+    'Snacks',
+    'Drinks',
+    'Desserts',
 }

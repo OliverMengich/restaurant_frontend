@@ -10,13 +10,15 @@ import Image from 'next/image';
 import homeBodyStyles from '../styles/Home.module.css';
 import CategoriesComponent from '@/components/Categories/Categories.component';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
-const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number}[] = [
+import { Category, Dish } from '@/components/DishesList/Dish';
+const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number, category: Category}[] = [
   	{
 		id: 1,
 		imageUrl: 'https://pngimg.com/uploads/turkey_food/turkey_food_PNG2.png',
 		name:'Beef Stew',
 		price: 5.99,
         rating: 4,
+        category: Category.Breakfast,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
   	},
   	{
@@ -25,6 +27,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		name:'Carrot Fries',
 		price: 4.99,
         rating: 4,
+        category: Category.Snacks,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
   	},
 	{
@@ -33,6 +36,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		name:'Fried Bananas',
 		price: 2.99,
         rating: 5,
+        category: Category.Desserts,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
 	},
 	{
@@ -41,6 +45,7 @@ const DISHES:{id: number, imageUrl: string, name: string, price: number, descrip
 		name:'Grilled Meat',
 		price: 9.99,
         rating: 3,
+        category: Category.Dinner,
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
 	}
 ]
@@ -91,10 +96,11 @@ const ROOMS: IRoomDetails[] = [
         rating: 4,
     },
 ];
-export default function Home() {
-    function changeDisplayCategory(e: any, category: string) {
-        
-    }
+interface HomeProps {
+    dishes: {[key: string]: Dish[]};
+    rooms: IRoomDetails[];
+}
+export default function Home({ dishes, rooms }: HomeProps) {
     return (
       <>
           <Head>
@@ -132,9 +138,27 @@ export default function Home() {
                 />
             </div>
           {/* <DishesListComponent dishes={DISHES} /> */}
-          <CategoriesComponent buttonClick={()=>{}} dishes={DISHES}/>
-          <RoomListComponent rooms={ROOMS} />
+          <CategoriesComponent buttonClick={()=>{}} dishes={dishes}/>
+          <RoomListComponent rooms={rooms} />
           <FooterComponent />
       </>
     );
+}
+export async function getStaticProps() {
+    let newDishes: { [key: string]: Dish[] } = {};
+    const fourDishes = await fetch('https://lassiette-api.onrender.com/api/dishes?limit=4');
+    let {dishes} = await fourDishes.json();
+    for (const category of Object.keys(Category)) {
+        Object.assign(newDishes, {
+            [category]: dishes.filter((dish: Dish) => dish.category === Category[category as keyof typeof Category]),
+        });
+    }
+    const fourRooms = await fetch('https://lassiette-api.onrender.com/api/dishes?limit=4');
+    let {rooms} = await fourRooms.json();
+    return {
+        props: {
+            dishes: newDishes,
+            rooms
+        },
+    };
 }

@@ -28,7 +28,7 @@ function RoomDetail({room}: Props) {
                         height={400}
                     />
                 </div>
-        v className={roomDescStyles["room_otherImages"]}>
+                <div className={roomDescStyles["room_otherImages"]}>
                     {
                         room.imageUrl.map((img,i)=>{
                             return (

@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
 import { useRouter } from 'next/router';
@@ -14,8 +14,8 @@ function handleImageSwitch(imageUrl: string, e: React.MouseEvent<HTMLImageElemen
 }
 function RoomDetail({room}: Props) {
     const router = useRouter();
-    const roomdata = router.query;
-    console.log(roomdata);
+    const roomId = router.query.roomId;
+    console.log(roomId);
     
     return (
         <div className={roomDescStyles["room-desc"]}>
@@ -169,20 +169,26 @@ function RoomDetail({room}: Props) {
 export async function getStaticPaths() {
     // const router = useRouter();
     // const roomdata = router.query;
-    const res = await fetch('https://lassiette-api.onrender.com/api/rooms/${params.id}');
-    const room = await res.json();
-
-    return { props: room as IRoomDetails };
+    return{
+        fallback: false, // tells nextjs whether your path array contains all supported parameters value or some of them
+        paths:[
+            {
+                params:{ roomId: 1}
+            }
+        ]
+    }
 }
-// export async function getStaticProps({ params }: any) {
-//     console.log("params", params);
-//     const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
-//     const {room} = await res.json();
-//     return {
-//         props: {
-//             room,
-//         },
-//     };
-// }
+// page is being generated during the build process.
+export async function getStaticProps(context) {
+    const roomId = context.params
+    console.log(context.params,'Room id is:',roomId);
+    const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
+    const {room} = await res.json();
+    return {
+        props: {
+            room,
+        },
+    };
+}
 
 export default RoomDetail;

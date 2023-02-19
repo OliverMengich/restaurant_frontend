@@ -37,7 +37,7 @@ function Dishes({ data}: DishesPageProps) {
 // fetch dishes from api
 export async function getStaticProps() {
     let newDishes={};
-    const res = await fetch('https://lassiette-api.onrender.com/api/dishes');
+    const res = await fetch('/api/dishes');
     let {dishes} = await res.json();
     for (const category of Object.keys(Category)) {
         Object.assign(newDishes, {

@@ -160,5 +160,6 @@ export async function getStaticProps() {
             dishes: newDishes,
             rooms
         },
+        revalidate: 10
     };
 }

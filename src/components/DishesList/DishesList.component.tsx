@@ -13,6 +13,7 @@ function DishesListComponent({dishes}: DishesListProps) {
                 <div className={dishesListStyles["dishes-container"]}>
                     {
                         Object.keys(dishes).map((category) => (
+                            <h2>{category}</h2> &&
                             dishes[category].map((dish) => (
                                 <DishItem key={dish.id} dish={dish} />
                             ))

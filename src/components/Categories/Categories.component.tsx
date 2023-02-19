@@ -17,7 +17,7 @@ function CategoriesComponent({dishes, buttonClick}:CategoriesProp ) {
             <div className={categoriesListsStyles.sections}>
                 {
                     Object.keys(dishes).map((category,id) => (
-                        <div key={id} className={id===2? categoriesListsStyles['selected-section'] : categoriesListsStyles.section}>
+                        <div key={id} className={categoriesListsStyles[id===2? 'selected-section':'section']}>
                             <DishesListComponent key={category} dishes={dishes} />
                         </div>
                     ))

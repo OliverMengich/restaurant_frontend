@@ -1,0 +1,9 @@
+name: Deploy Lassiette to Azure
+on: push
+jobs:
+  test:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello world
+        run: echo "HELLO, WORLD!!"

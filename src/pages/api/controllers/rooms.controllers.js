@@ -2,8 +2,8 @@ import { getRooms, createRoom, deleteRoom, getRoomById, updateRoom } from "../se
 
 export const getAllRooms = async (req, res) => {
     try {
-        if(req.params.limit){
-            const rooms = await getRooms(req.params.limit);
+        if(req.query.limit){
+            const rooms = await getRooms(req.query.limit);
             return res.json({
                 rooms,
                 status: 'success'

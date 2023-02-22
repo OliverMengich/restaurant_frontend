@@ -4,9 +4,9 @@
     width: 300px;
     text-align: center;
     height: 400px;
-    color: black;
+    color: white;
     margin: 0 15px; 
-    background: #fff;
+    background: rgba($color: #000000, $alpha: 0.8);
     border-radius: 15px;
     box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

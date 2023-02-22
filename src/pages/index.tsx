@@ -11,6 +11,7 @@ import homeBodyStyles from '../styles/Home.module.css';
 import CategoriesComponent from '@/components/Categories/Categories.component';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import { Category, Dish } from '@/components/DishesList/Dish';
+import { useState } from 'react';
 const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number, category: Category}[] = [
   	{
 		id: 1,
@@ -101,6 +102,10 @@ interface HomeProps {
     rooms: IRoomDetails[];
 }
 export default function Home({ dishes, rooms }: HomeProps) {
+    const [selectedDish,setSelectedDish] = useState("Desserts")
+    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>)=> {
+        return setSelectedDish(e.target?.innerHTML);
+    }
     return (
       <>
           <Head>
@@ -138,7 +143,7 @@ export default function Home({ dishes, rooms }: HomeProps) {
                 />
             </div>
           {/* <DishesListComponent dishes={DISHES} /> */}
-          <CategoriesComponent buttonClick={()=>{}} dishes={dishes}/>
+          <CategoriesComponent selectedDish={selectedDish} buttonClick={handleButtonClick} dishes={dishes}/>
           <RoomListComponent rooms={rooms} />
           <FooterComponent />
       </>
@@ -146,14 +151,15 @@ export default function Home({ dishes, rooms }: HomeProps) {
 }
 export async function getStaticProps() {
     let newDishes: { [key: string]: Dish[] } = {};
-    const fourDishes = await fetch('https://lassiette-api.onrender.com/api/dishes?limit=4');
+    const fourDishes = await fetch('http://localhost:3000/api/dishes');
     let {dishes} = await fourDishes.json();
-    for (const category of Object.keys(Category)) {
+    for (const category of ["Breakfast","Lunch","Dinner","Snacks","Drinks","Desserts"]) {
         Object.assign(newDishes, {
             [category]: dishes.filter((dish: Dish) => dish.category === Category[category as keyof typeof Category]),
         });
     }
-    const fourRooms = await fetch('https://lassiette-api.onrender.com/api/dishes?limit=4');
+    
+    const fourRooms = await fetch('http://localhost:3000/api/rooms');
     let {rooms} = await fourRooms.json();
     return {
         props: {

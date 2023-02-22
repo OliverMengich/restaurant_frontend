@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import categoriesListsStyles from './Categories.module.scss';
 import DishesListComponent from '../DishesList/DishesList.component';
 import { Dish } from '../DishesList/Dish';
 interface CategoriesProp{
     dishes: {[key: string]:Dish[]},
     buttonClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+    selectedDish: string
 }
-function CategoriesComponent({dishes, buttonClick}:CategoriesProp ) {
+function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp ) {
     return (
         <div className={categoriesListsStyles.categories}>
             <div className={categoriesListsStyles.sections}>
                 {
-                    Object.keys(dishes).map((category,id) => (<button key={id} onClick={buttonClick} className={id===2? categoriesListsStyles['selected']:categoriesListsStyles["btn"]}>{category}</button>))
+                    Object.keys(dishes).map((category,id) => (<button key={id} onClick={buttonClick} className={selectedDish===category? categoriesListsStyles['selected']:categoriesListsStyles["btn"]}>{category}</button>))
                 }
             </div>
             <div className={categoriesListsStyles.sections}>
                 {
                     Object.keys(dishes).map((category,id) => (
-                        <div key={id} className={categoriesListsStyles[id===2? 'selected-section':'section']}>
+                        <div key={id} className={categoriesListsStyles[selectedDish===category? 'selected-section':'section']}>
                             <DishesListComponent key={category} dishes={dishes} />
                         </div>
                     ))

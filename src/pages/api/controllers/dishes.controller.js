@@ -1,7 +1,7 @@
 import { getAllDishes, createDish, deleteDish, getDishById, updateDish } from "../services/dishes.services.js";
 export const getDishes = async (req, res) => {
     try {
-        if(req.params.limit){
+        if(req.query.limit !==undefined){
             const dishes = await getAllDishes();
             return res.json({
                 dishes,
@@ -14,6 +14,7 @@ export const getDishes = async (req, res) => {
             status: 'success'
         })
     } catch (err) {
+        console.log(err);
         res.status(404).json({error: err});
     }
 }

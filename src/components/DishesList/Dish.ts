@@ -8,10 +8,10 @@ export interface Dish {
     category: Category;
 }
 export enum Category{
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Snacks',
-    'Drinks',
-    'Desserts',
+    'Breakfast'=0,
+    'Lunch'=1,
+    'Dinner'=2,
+    'Snacks'=3,
+    'Drinks'=4,
+    'Desserts'=5,
 }

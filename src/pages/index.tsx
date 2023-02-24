@@ -104,7 +104,7 @@ interface HomeProps {
 export default function Home({ dishes, rooms }: HomeProps) {
     const [selectedDish,setSelectedDish] = useState("Desserts")
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>)=> {
-        return setSelectedDish(e.target?.innerHTML);
+        return setSelectedDish((e.target as HTMLButtonElement).innerHTML);
     }
     return (
       <>

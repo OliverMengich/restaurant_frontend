@@ -1,11 +1,13 @@
 export interface Dish {
-    id: number;
+    id: string;
     imageUrl: string;
     name: string;
     price: number;
     description: string;
     rating: number;
-    category: Category;
+    category: string;
+    createdAt?: Date
+    updatedAt?: Date
 }
 export enum Category{
     'Breakfast'=0,

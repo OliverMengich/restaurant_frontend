@@ -11,7 +11,7 @@ function ConferenceRooms() {
 }
 export default ConferenceRooms;
 export async function getStaticProps() {
-    const res = await fetch('https://lassiette-api.onrender.com/api/conference-rooms');
+    const res = await fetch('http://localhost:3000/api/conference-rooms');
     const {rooms} = await res.json();
     console.log(rooms);
     return {

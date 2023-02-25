@@ -62,15 +62,15 @@ function RoomPage() {
         </div>
     );
 }
-// export async function getStaticProps() {
-//     const res = await fetch("https://lassiette-api.onrender.com/api/rooms");
-//     const {rooms} = await res.json();
-//     console.log(rooms);
-//     return {
-//         props: {
-//             rooms: rooms as IRoomDetails,
-//         },
-//     };
-// }
+export async function getStaticProps() {
+    const res = await fetch("http://localhost:3000/api/rooms");
+    const {rooms} = await res.json();
+    console.log(rooms);
+    return {
+        props: {
+            rooms: rooms as IRoomDetails,
+        },
+    };
+}
 
-// export default RoomPage;
+export default RoomPage;

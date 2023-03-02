@@ -3,7 +3,7 @@ import { getConferenceRooms, createConferenceRoom, deleteConferenceRoom,getConfe
 export const getAllConferenceRooms = async function(req,res){
     try {
         const conferenceRooms = await getConferenceRooms();
-        return res.json({
+        return res.status(200).json({
             conferenceRooms,
             status: 'success'
         })

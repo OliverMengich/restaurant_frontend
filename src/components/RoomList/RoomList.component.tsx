@@ -3,13 +3,14 @@ import roomStyles from './RoomList.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 interface Room{
-    id: number;
-    imageUrl: string[] ;
+    id: string;
+    roomImage: string[] ;
     roomNumber: number;
     roomType: string;
     price: number;
     roomStatus: boolean;
     rating?: number;
+    roomDescription: string
 }
 interface IRoomDetails {
     rooms: Room[]
@@ -27,7 +28,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                 <div className={roomStyles.roomImg}>
                                     <Image
                                         className={roomStyles.img}
-                                        src={room.imageUrl[0]}
+                                        src={room.roomImage? room.roomImage[0]:''}
                                         alt="image1"
                                         width={300}
                                         height={300}
@@ -67,7 +68,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                         <p>${room.price}</p>
                                     </div>
                                     <p style={{ margin: "10px 0" }}>
-                                        Lorem ipsum dolor sit amet.
+                                        {room.roomDescription}
                                     </p>
                                     <button className={roomStyles["btn"]}>
                                         Book Now

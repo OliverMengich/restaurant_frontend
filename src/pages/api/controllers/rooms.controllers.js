@@ -1,4 +1,4 @@
-import { getRooms, createRoom, deleteRoom, getRoomById, updateRoom } from "../services/rooms.services.js";
+import { getRooms, getRoomsId, createRoom, deleteRoom, getRoomById, updateRoom } from "../services/rooms.services.js";
 
 export const getAllRooms = async (req, res) => {
     try {
@@ -11,6 +11,17 @@ export const getAllRooms = async (req, res) => {
         }
         console.log("No limit passed");
         const rooms = await getRooms();
+        return res.json({
+            rooms,
+            status: 'success'
+        })
+    } catch (error) {
+        return res.status(500).json({ error })
+    }
+}
+export const getIdRooms = async (req, res) => {
+    try {
+        const rooms = await getRoomsId();
         return res.json({
             rooms,
             status: 'success'

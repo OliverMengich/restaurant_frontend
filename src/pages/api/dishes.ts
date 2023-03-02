@@ -11,7 +11,6 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse<Di
     switch (method) {
         case 'GET':
             const dishes = await getDishes(req, res);
-            console.log(dishes);
             res.status(200).send(dishes);
             break;
         case 'POST':

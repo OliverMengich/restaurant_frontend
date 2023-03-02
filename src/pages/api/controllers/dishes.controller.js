@@ -3,7 +3,7 @@ export const getDishes = async (req, res) => {
     try {
         if(req.query.limit !==undefined){
             const dishes = await getAllDishes();
-            return res.json({
+            return res.status(200).json({
                 dishes,
                 status: 'success'
             })

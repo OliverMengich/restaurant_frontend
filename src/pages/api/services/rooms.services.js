@@ -16,6 +16,16 @@ export const getRooms = async function (limit) {
         console.log(error);
     }
 }
+export const getRoomsId = async function () {
+    try {
+        const rooms = await Accommodation.findAll({
+            attributes: ['id']
+        });
+        return rooms;
+    } catch (error) {
+        console.log(error);
+    }
+}
 export const createRoom = async function (roomData) {
     const room = await Accommodation.create({ ...roomData});
     return room;

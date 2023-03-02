@@ -12,11 +12,12 @@ function ConferenceRooms() {
 export default ConferenceRooms;
 export async function getStaticProps() {
     const res = await fetch('http://localhost:3000/api/conference-rooms');
-    const {rooms} = await res.json();
-    console.log(rooms);
+    const {conferenceRooms} = await res.json();
+    console.log(conferenceRooms);
+    
     return {
         props: {
-            data: rooms,
+            data: conferenceRooms,
         },
     };
 }

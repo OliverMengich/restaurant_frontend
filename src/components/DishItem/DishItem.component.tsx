@@ -3,12 +3,13 @@ import dishesListStyles from './DishItem.module.scss';
 import Image from 'next/image';
 import RatingComponent from '../RatingComponent/Rating.component';
 interface Dish{
-    id: number,
+    id: string,
     imageUrl: string,
     name: string,
     price: number,
     description: string,
     rating: number
+    category: string
 }
 interface DishItemProps{
     dish: Dish
@@ -28,24 +29,10 @@ function DishItem({dish}: DishItemProps) {
                 </h3>
                 <RatingComponent rating={dish.rating} />
                 <p>{dish.description.slice(0,50)}</p>
-                {/* <div className={dishesListStyles["dish-info"]}>
-                    <h3 className={dishesListStyles["title"]}>
-                        {dish.name}
-                    </h3>
-                    
-                </div> */}
+                
                 <div className={dishesListStyles.dishes_action}>
-                    {/* <button className={dishesListStyles.btn}>
-                        Order
-                    </button> */}
                     <h3>${dish.price}</h3>
                     <button className={dishesListStyles["cart-btn"]}>
-                        {/* <Image
-                            src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png"
-                            alt="star"
-                            width={20}
-                            height={20}
-                        /> */}
                         Add to Cart
                     </button>
                 </div>

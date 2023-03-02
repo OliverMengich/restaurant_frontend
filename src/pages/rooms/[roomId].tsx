@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Context } from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-// import bg from "../../assets/img.png";
+import { getRoomsId } from '../api/controllers/rooms.controllers';
+import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 interface Props {
     room: IRoomDetails
 }
@@ -22,7 +24,7 @@ function RoomDetail({room}: Props) {
             <div className={roomDescStyles["room-desc-img"]}>
                 <div className={roomDescStyles["room_image"]}>
                     <Image
-                        src={room.imageUrl[0]}
+                        src={room.roomImage[0]}
                         alt="a room"
                         width={700}
                         height={400}
@@ -30,7 +32,7 @@ function RoomDetail({room}: Props) {
                 </div>
                 <div className={roomDescStyles["room_otherImages"]}>
                     {
-                        room.imageUrl.map((img,i)=>{
+                        room.roomImage.map((img,i)=>{
                             return (
                                 <Image key={i}
                                     onClick={(e)=>handleImageSwitch(img,e)}
@@ -169,20 +171,23 @@ function RoomDetail({room}: Props) {
 export async function getStaticPaths() {
     // const router = useRouter();
     // const roomdata = router.query;
+    const roomsId = await getRoomsId(NextRequest, NextResponse);
+    console.log(roomsId);
+    
     return{
         fallback: false, // tells nextjs whether your path array contains all supported parameters value or some of them
         paths:[
             {
-                params:{ roomId: 1}
+                params:{ roomsId }
             }
         ]
     }
 }
 // page is being generated during the build process.
-export async function getStaticProps(context) {
-    const roomId = context.params
-    console.log(context.params,'Room id is:',roomId);
-    const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${params.id}`);
+export async function getStaticProps(context: GetStaticPropsContext) {
+    const roomId = context.params 
+    console.log(context.params,'Room id is:');
+    const res = await fetch(`https://lassiette-api.onrender.com/api/rooms/${roomId}`);
     const {room} = await res.json();
     return {
         props: {
@@ -190,5 +195,6 @@ export async function getStaticProps(context) {
         },
     };
 }
+//how to generate definition file in typescript from terminal
 
 export default RoomDetail;

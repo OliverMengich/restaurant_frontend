@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import categoriesListsStyles from './Categories.module.scss';
 import DishesListComponent from '../DishesList/DishesList.component';
 import { Dish } from '../DishesList/Dish';
@@ -19,7 +19,7 @@ function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp )
                 {
                     Object.keys(dishes).map((category,id) => (
                         <div key={id} className={categoriesListsStyles[selectedDish===category? 'selected-section':'section']}>
-                            <DishesListComponent key={category} dishes={dishes} />
+                            <DishesListComponent category={category} key={category} dishes={dishes} />
                         </div>
                     ))
                 }
@@ -27,5 +27,4 @@ function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp )
         </div>
     );
 }
-
 export default CategoriesComponent;

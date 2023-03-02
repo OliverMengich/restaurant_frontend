@@ -5,9 +5,9 @@ interface FormInputData extends InputHTMLAttributes<HTMLInputElement>{
     required?: boolean
     name?: string
     value?: string
-    onChange?: ()=>void
+    onChange?: (e: React.FormEvent<HTMLInputElement>)=>void
 }
-const FormInput: FC<FormInputData> = ({ label,...otherProps }: FormInputData)=>{
+const FormInput: FC<FormInputData> = ({  label,...otherProps }: FormInputData)=>{
     return(
         <div className={formInputStyles.group}>
             <input required className={formInputStyles["form-input"]} {...otherProps} />

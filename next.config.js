@@ -7,11 +7,7 @@ module.exports =nextConfig
 module.exports = {
     images: {
         domains: [
-            "cdn-icons-png.flaticon.com",
-            "i.pinimg.com",
-            "demo.w3layouts.com",
-            "pngimg.com",
-            "th.bing.com",
+            "images.pexels.com",
         ],
     },
 };

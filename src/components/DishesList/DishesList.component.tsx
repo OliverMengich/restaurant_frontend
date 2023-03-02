@@ -5,18 +5,16 @@ import DishItem from '../DishItem/DishItem.component';
 import { Dish } from './Dish';
 interface DishesListProps{
     dishes: {[key: string]:Dish[]}
+    category: string
 }
-function DishesListComponent({dishes}: DishesListProps) {
+function DishesListComponent({dishes,category}: DishesListProps) {
     return (
         <>
             <div className={dishesListStyles["dishes-section"]}>
                 <div className={dishesListStyles["dishes-container"]}>
                     {
-                        Object.keys(dishes).map((category) => (
-                            <h2>{category}</h2> &&
-                            dishes[category].map((dish) => (
-                                <DishItem key={dish.id} dish={dish} />
-                            ))
+                        dishes[category].map((dish) => (
+                            <DishItem key={dish.id} dish={dish} />
                         ))
                     }
                 </div>

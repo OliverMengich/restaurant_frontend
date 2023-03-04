@@ -6,7 +6,6 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
     switch (method) {
         case 'GET':
             const conferenceRooms = await getAllConferenceRooms(req,res);
-            console.log(conferenceRooms);
             
             res.status(200).send(conferenceRooms);
             break;

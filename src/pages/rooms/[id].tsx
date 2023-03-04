@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
 import { useRouter } from 'next/router';
@@ -10,21 +10,19 @@ import RatingComponent from '@/components/RatingComponent/Rating.component';
 interface Props {
     room: IRoomDetails
 }
-function handleImageSwitch(imageUrl: string, e: React.MouseEvent<HTMLImageElement, MouseEvent>){
-    // switch image on click
-    console.log(e);
-    
-}
 function RoomDetail({room}: Props) {
-    const router = useRouter();
-    const roomId = router.query.id;
-    
+    function handleImageSwitch(imageUrl: string, e: React.MouseEvent<HTMLImageElement, MouseEvent>){
+        // switch image on click
+        console.log(e);
+        setFirstImage(imageUrl)
+    }
+    const [firstImage,setFirstImage] = useState('')
     return (
         <div className={roomDescStyles["room-desc"]}>
             <div className={roomDescStyles["room-desc-img"]}>
                 <div className={roomDescStyles["room_image"]}>
                     <Image
-                        src={room.roomImage[0]}
+                        src={!firstImage? room.roomImage[0]: firstImage}
                         alt="a room"
                         width={700}
                         height={400}
@@ -145,6 +143,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
     const roomId = context.params?.id;
     const res = await fetch(`http://localhost:3000/api/rooms/${roomId}`);
+    console.log(res);
     const {room} = await res.json();
     return {
         props: {

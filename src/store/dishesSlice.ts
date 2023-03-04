@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {AppState} from './dishesSlice';
 import {HYDRATE} from 'next-redux-wrapper';
 import { Dish } from '@/pages/api/typeDefs';
 
@@ -26,6 +25,3 @@ export const dishesSlice = createSlice({
         }
     },
 });
-export const { setAuthState } = dishesSlice.actions;
-export const selectAuthState=  (state: AppState)=>state.dishes.dishes
-export default dishesSlice.reducer;

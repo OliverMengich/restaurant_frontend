@@ -19,15 +19,17 @@ export const getAllRooms = async (req, res) => {
         return res.status(500).json({ error })
     }
 }
-export const getIdRooms = async (req, res) => {
+export const fetchRoomsId = async () => {
     try {
         const rooms = await getRoomsId();
-        return res.json({
-            rooms,
-            status: 'success'
-        })
+        console.log('Controllers room ids',JSON.parse(rooms));
+        return JSON.parse(rooms);
     } catch (error) {
-        return res.status(500).json({ error })
+        console.log('Error is: ',error)
+        return JSON.stringify({ 
+            error,
+            status: 'failure'
+        })
     }
 }
 // these routes are only accessible to the admin
@@ -44,10 +46,10 @@ export const createARoom = async (req, res) => {
 }
 export const getARoom = async (req, res) => {
     try {
-        const room = await getRoomById(req.params.id);
+        const room = await getRoomById(req.query.roomId);
+        console.log("room",room.toJSON());
         return res.json({
-            room,
-            status: 'success'
+            room
         })
     } catch (error) {
         return res.status(500).json({ error })

@@ -10,7 +10,7 @@ function RoomPage({rooms}:{rooms:IRoomDetails[]}) {
         <div>
             <CenterFindComponent/>
             <RoomListComponent rooms={rooms} />
-            <RoomItemComponent/>
+            {/* <RoomItemComponent/> */}
             <FooterComponent/>
         </div>
     );

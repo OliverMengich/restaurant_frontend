@@ -8,6 +8,7 @@ module.exports = {
     images: {
         domains: [
             "images.pexels.com",
+            "cdn-icons-png.flaticon.com"
         ],
     },
 };

@@ -6,7 +6,7 @@ import FooterComponent from '@/components/footer/Footer.component';
 const ContactUs = () => {
     return (
         <div>
-            <PageInfoComponent path='/Home' title='Contact Page' />
+            <PageInfoComponent path='contact' title='Contact Page' />
             <ContactMessageComponent/>
             <FooterComponent/>
         </div>

@@ -102,8 +102,7 @@ function RoomListComponent({rooms}: IRoomDetails) {
                                         </div>
                                         <p>
                                             <Link href={{
-                                                pathname: `rooms/${room.id}`,
-                                                // query: {...room}
+                                                pathname: `rooms/${room.id}`
                                                 }}>Full Info &rarr;</Link>{" "}
                                         </p>
                                     </div>

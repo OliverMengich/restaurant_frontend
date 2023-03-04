@@ -16,7 +16,6 @@ type ButtonProps={
     type?: "submit"|"button"
 }
 
-// buttonStyles[`button-container ${buttonType? BUTTON_TYPES_CLASSES[buttonType]:''}`]
 const Button = ({children,type="button", buttonType,...otherProps}: ButtonProps)=>{
     return(
         <button type={type} className={clsx("button-container",{[BUTTON_TYPES_CLASSES[buttonType]]: BUTTON_TYPES_CLASSES[buttonType]},'')} 

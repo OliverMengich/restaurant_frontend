@@ -21,7 +21,7 @@ export const getRoomsId = async function () {
         const rooms = await Accommodation.findAll({
             attributes: ['id']
         });
-        return rooms;
+        return JSON.stringify(rooms);
     } catch (error) {
         console.log(error);
     }
@@ -32,7 +32,6 @@ export const createRoom = async function (roomData) {
 }
 export const getRoomById = async function (id) {
     const room = await Accommodation.findByPk(id);
-    console.log(room);
     return room;
 }
 export const updateRoom = async function (id, update) {

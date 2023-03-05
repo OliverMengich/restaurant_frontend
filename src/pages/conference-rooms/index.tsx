@@ -1,11 +1,34 @@
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
-import RoomListComponent from '@/components/RoomList/RoomList.component';
 import React from 'react';
-
-function ConferenceRooms() {
+interface ConferenceRoom{
+    id: number;
+    roomNumber: string;
+    seats: number;
+    imageUrl: string[];
+    price: number;
+    rating: number;
+    createdAt: string;
+    updatedAt: string;
+}
+interface ConferenceRoomsProps{
+    data: ConferenceRoom[]
+}
+function ConferenceRooms({ data}: ConferenceRoomsProps) {
     return (
         <div>
             <PageInfoComponent path='Conference Room' title='Conference Rooms' />
+            {
+                data.map((room, i) => {
+                    return (
+                        <div key={i}>
+                            <h2>{room.roomNumber}</h2>
+                            <p>{room.seats}</p>
+                            <p>{room.price}</p>
+                            <p>{room.rating}</p>
+                        </div>
+                    );
+                })
+            }
         </div>
     );
 }

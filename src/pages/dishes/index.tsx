@@ -1,24 +1,12 @@
 import { useState } from 'react';
-// import React {useState} from 'react';
 import DishesListComponent from '@/components/DishesList/DishesList.component';
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
 import FooterComponent from '@/components/footer/Footer.component';
 import { Dish } from '@/components/DishesList/Dish';
-enum Category{
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Snacks',
-    'Drinks',
-    'Desserts',
-}
-
-
 interface DishesPageProps{
     data: {[key: string]: Dish[]}
 }
 function Dishes({ data}: DishesPageProps) {
-    const [mydish, setDishes] = useState(data);
 
     return (
         <div>

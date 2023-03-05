@@ -1,7 +1,8 @@
 console.log('Middleware loaded');
 import CustomersSchema from '../models/customers.model.js';
 import CryptoJS from 'crypto-js';
-import config from '../config/config.js';
+import config from '../config/index.js';
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async function(req,res,next){
     if(req.body.userType && req.body.userType==="ADMIN" && !req.headers["authorization"]){
         return res.status(401).json({ error: "Not Authenticated" });
@@ -20,7 +21,7 @@ export default async function(req,res,next){
             return res.status(401).json({error: 'Not Authenticated'})
         }
         try {
-            let decrypted = CryptoJS.AES.decrypt(authToken, config.SECRET).toString(CryptoJS.enc.Utf8);
+            let decrypted = CryptoJS.AES.decrypt(authToken, config.secret).toString(CryptoJS.enc.Utf8);
             if (!decrypted.userId) {
                 return res.status(401).json({ error: "Not Authenticated" });
             }

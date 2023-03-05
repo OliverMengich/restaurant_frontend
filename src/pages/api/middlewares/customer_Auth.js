@@ -1,7 +1,8 @@
 console.log('Middleware loaded');
 import CustomersSchema from '../models/customers.model.js';
 import CryptoJS from 'crypto-js';
-import config from '../config/config.js';
+import config from '../config/index.js';
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async function(req,res,next){
     // const encrypted = CryptoJS.AES.encrypt(JSON.stringify({'username':'Oliver'}), 'Hello_Secret').toString(); 
     // console.log(encrypted);
@@ -14,7 +15,7 @@ export default async function(req,res,next){
     if (!authToken){
         return res.status(401).json({error: 'Not Authenticated'})
     }
-    let decrypted = CryptoJS.AES.decrypt(authToken, config.SECRET).toString(CryptoJS.enc.Utf8);
+    let decrypted = CryptoJS.AES.decrypt(authToken, config.secret).toString(CryptoJS.enc.Utf8);
     decrypted = JSON.parse(decrypted);
     const admin = await CustomersSchema.findOne({
         where:{

@@ -1,9 +1,16 @@
 import { Sequelize } from "sequelize";
 import config from '../config/index.js';
-const sequelize = new Sequelize(config.DB_URL?? '',{
+const sequelize = new Sequelize(config.DB_URL,{
     logging: false,
-    ssl: true,
+    ssl: false,
+    dialect: 'postgres',
 })
-const instance = async ()=> await sequelize.authenticate().then(()=>console.log('Connected to Database')).catch(err=>console.log("Error"))
+const instance = async ()=> await sequelize.authenticate().then(()=>{
+    sequelize.sync().then(()=>{
+        console.log('Database connected');
+    }
+    ).catch(err=>console.log(err));
+}).catch(err=>console.log(err));
+
 instance();
 export default sequelize;

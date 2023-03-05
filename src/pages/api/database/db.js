@@ -5,12 +5,7 @@ const sequelize = new Sequelize(config.DB_URL,{
     ssl: false,
     dialect: 'postgres',
 })
-const instance = async ()=> await sequelize.authenticate().then(()=>{
-    sequelize.sync().then(()=>{
-        console.log('Database connected');
-    }
-    ).catch(err=>console.log(err));
-}).catch(err=>console.log(err));
+const instance = async ()=> await sequelize.authenticate().then(()=>console.log("Connected to DB")).catch(err=>console.log(err));
 
 instance();
 export default sequelize;

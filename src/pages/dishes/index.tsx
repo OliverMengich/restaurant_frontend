@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import DishesListComponent from '@/components/DishesList/DishesList.component';
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
 import FooterComponent from '@/components/footer/Footer.component';

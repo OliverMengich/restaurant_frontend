@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import roomDescStyles from './RoomDesc.module.css';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { fetchRoomsId } from '../api/controllers/rooms.controllers';
-import { GetStaticProps, GetStaticPropsContext } from 'next';
-import { NextRequest, NextResponse } from 'next/server';
+import { GetStaticPropsContext } from 'next';
 import RatingComponent from '@/components/RatingComponent/Rating.component';
 interface Props {
     room: IRoomDetails

@@ -36,8 +36,6 @@ export default ConferenceRooms;
 export async function getStaticProps() {
     const res = await fetch('http://localhost:3000/api/conference-rooms');
     const {conferenceRooms} = await res.json();
-    console.log(conferenceRooms);
-    
     return {
         props: {
             data: conferenceRooms,

@@ -1,51 +1,12 @@
 import Head from 'next/head';
-import image13 from '../assets/m3.jpg'
 import RoomListComponent from '@/components/RoomList/RoomList.component';
 import FooterComponent from '@/components/footer/Footer.component';
 import Image from 'next/image';
 import homeBodyStyles from '../styles/Home.module.css';
 import CategoriesComponent from '@/components/Categories/Categories.component';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
-import { Category, Dish } from '@/components/DishesList/Dish';
+import { Dish } from '@/components/DishesList/Dish';
 import { useState } from 'react';
-const DISHES:{id: number, imageUrl: string, name: string, price: number, description: string, rating: number, category: Category}[] = [
-  	{
-		id: 1,
-		imageUrl: 'https://pngimg.com/uploads/turkey_food/turkey_food_PNG2.png',
-		name:'Beef Stew',
-		price: 5.99,
-        rating: 4,
-        category: Category.Breakfast,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
-  	},
-  	{
-		id: 2,
-		imageUrl: "https://th.bing.com/th/id/R.acc50f9c1272cc7cd201f1638a64de15?rik=BafpBIY1EsK0rg&riu=http%3a%2f%2fpngimg.com%2fuploads%2fturkey_food%2fturkey_food_PNG1.png&ehk=oYRTgwR1nB11822fb1CkJS9oFCIujCDy841D1koY7Ww%3d&risl=&pid=ImgRaw&r=0",
-		name:'Carrot Fries',
-		price: 4.99,
-        rating: 4,
-        category: Category.Snacks,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
-  	},
-	{
-		id: 3,
-		imageUrl: image13.src,
-		name:'Fried Bananas',
-		price: 2.99,
-        rating: 5,
-        category: Category.Desserts,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
-	},
-	{
-		id: 4,
-		imageUrl: "https://th.bing.com/th/id/R.62deafa7b1ef7c13ade024cb6149e498?rik=ff98YApwm3%2ft1g&riu=http%3a%2f%2fpngimg.com%2fuploads%2fturkey_food%2fturkey_food_PNG27.png&ehk=2GY2xpfjSHWWYNsRp4nLRaW0h1fUT8C0rO9RBMtw2L4%3d&risl=&pid=ImgRaw&r=0",
-		name:'Grilled Meat',
-		price: 9.99,
-        rating: 3,
-        category: Category.Dinner,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget ultricies lacinia, nunc nisl lacinia nisl, vel aliquet nunc nisl vel nisl.'
-	}
-]
 interface HomeProps {
     dishes: {[key: string]: Dish[]};
     rooms: IRoomDetails[];
@@ -66,7 +27,6 @@ export default function Home({ dishes, rooms }: HomeProps) {
               />
               <link rel="icon" href="/chef_icon.png" />
           </Head>
-          {/* <h1>Hello World</h1> */}
             <div className={homeBodyStyles["home-body-info"]}>
                 <div style={{ float: "left" }}>
                     <h1>
@@ -84,14 +44,12 @@ export default function Home({ dishes, rooms }: HomeProps) {
                     </p>
                 </div>
                 <Image
-                    // style={{borderRadius: '50%', float: 'right', border: '2px solid #fff'}}
                     src="/plate.png"
                     alt="image1"
                     width={300}
                     height={300}
                 />
             </div>
-          {/* <DishesListComponent dishes={DISHES} /> */}
           <CategoriesComponent selectedDish={selectedDish} buttonClick={handleButtonClick} dishes={dishes}/>
           <RoomListComponent rooms={rooms} />
           <FooterComponent />

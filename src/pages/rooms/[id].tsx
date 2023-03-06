@@ -10,8 +10,6 @@ interface Props {
 }
 function RoomDetail({room}: Props) {
     function handleImageSwitch(imageUrl: string, e: React.MouseEvent<HTMLImageElement, MouseEvent>){
-        // switch image on click
-        console.log(e);
         setFirstImage(imageUrl)
     }
     const [firstImage,setFirstImage] = useState('')
@@ -141,7 +139,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: GetStaticPropsContext) {
     const roomId = context.params?.id;
     const res = await fetch(`http://localhost:3000/api/rooms/${roomId}`);
-    console.log(res);
     const {room} = await res.json();
     return {
         props: {

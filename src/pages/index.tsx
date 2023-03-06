@@ -9,7 +9,7 @@ import { Dish } from '@/components/DishesList/Dish';
 import { useState } from 'react';
 interface HomeProps {
     dishes: {[key: string]: Dish[]};
-    rooms: IRoomDetails[];
+    rooms: IRoomDetails[] ;
 }
 export default function Home({ dishes, rooms }: HomeProps) {
     const [selectedDish,setSelectedDish] = useState("Breakfast")
@@ -65,8 +65,8 @@ export async function getStaticProps() {
     if (typeof fourDishes ==='undefined') {
         return {
             props:{
-                dishes: null,
-                rooms: null
+                dishes: [],
+                rooms: []
             }
         }
     }
@@ -80,8 +80,8 @@ export async function getStaticProps() {
     if (typeof fourRooms ==='undefined') {
         return {
             props:{
-                dishes: null,
-                rooms: null
+                dishes: [],
+                rooms: []
             }
         }
     }

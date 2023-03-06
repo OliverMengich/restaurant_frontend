@@ -3,7 +3,7 @@ import categoriesListsStyles from './Categories.module.scss';
 import DishesListComponent from '../DishesList/DishesList.component';
 import { Dish } from '../DishesList/Dish';
 interface CategoriesProp{
-    dishes: {[key: string]:Dish[]},
+    dishes: {[key: string]:Dish[]} ,
     buttonClick: (e: React.MouseEvent<HTMLButtonElement>) => void
     selectedDish: string
 }

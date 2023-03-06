@@ -7,6 +7,8 @@ import CategoriesComponent from '@/components/Categories/Categories.component';
 import { IRoomDetails } from '@/components/RoomList/IRoomDetails';
 import { Dish } from '@/components/DishesList/Dish';
 import { useState } from 'react';
+import { getDishes } from './api/controllers/dishes.controller';
+import { getAllRooms } from './api/controllers/rooms.controllers';
 interface HomeProps {
     dishes: {[key: string]: Dish[]};
     rooms: IRoomDetails[] ;
@@ -60,8 +62,10 @@ export default function Home({ dishes, rooms }: HomeProps) {
     );
 }
 export async function getStaticProps() {
+    
     let newDishes: { [key: string]: Dish[] } = {};
-    const fourDishes = await fetch('http://localhost:3000/api/dishes');
+    const fourDishes = await getDishes();
+    
     if (typeof fourDishes ==='undefined') {
         return {
             props:{
@@ -70,14 +74,13 @@ export async function getStaticProps() {
             }
         }
     }
-    let {dishes}: {dishes: Dish[], status: string} = await fourDishes.json();
     for (const category of ["Breakfast","Lunch","Dinner","Snacks","Drinks","Desserts"]) {
         Object.assign(newDishes, {
-            [category]: dishes.filter((dish: Dish) => dish.category === category),
+            [category]: fourDishes.filter((dish: Dish) => dish.category === category),
         });
     }
-    const fourRooms = await fetch('http://localhost:3000/api/rooms');
-    if (typeof fourRooms ==='undefined') {
+    const rooms = await getAllRooms();
+    if (typeof rooms ==='undefined') {
         return {
             props:{
                 dishes: [],
@@ -85,12 +88,12 @@ export async function getStaticProps() {
             }
         }
     }
-    let {rooms} = await fourRooms.json();
     return {
         props: {
-            dishes: newDishes,
-            rooms
+            dishes: newDishes as {[key: string]: Dish[]},
+            rooms: rooms as IRoomDetails[]
         },
         revalidate: 10
     };
+    
 }

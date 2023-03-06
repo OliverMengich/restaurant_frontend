@@ -1,22 +1,16 @@
 import { getRooms, getRoomsId, createRoom, deleteRoom, getRoomById, updateRoom } from "../services/rooms.services.js";
 
-export const getAllRooms = async (req, res) => {
+export const getAllRooms = async () => {
     try {
-        if(req.query.limit){
-            const rooms = await getRooms(req.query.limit);
-            return res.json({
-                rooms,
-                status: 'success'
-            })
-        }
+        // if(req.query.limit){
+        //     const rooms = await getRooms(req.query.limit);
+        //     return JSON.parse(JSON.stringify(rooms))
+        // }
         console.log("No limit passed");
         const rooms = await getRooms();
-        return res.json({
-            rooms,
-            status: 'success'
-        })
+        return JSON.parse(JSON.stringify(rooms))
     } catch (error) {
-        return res.status(500).json({ error })
+        return JSON.parse('{"err":"Error Encounter"}')
     }
 }
 export const fetchRoomsId = async () => {

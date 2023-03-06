@@ -1,15 +1,12 @@
 import { getConferenceRooms, createConferenceRoom, deleteConferenceRoom,getConferenceRoomById, updateConferenceRoom } from "../services/conferenceRoom.services.js";
 
-export const getAllConferenceRooms = async function(req,res){
+export const getAllConferenceRooms = async function(){
     try {
         const conferenceRooms = await getConferenceRooms();
-        return res.status(200).json({
-            conferenceRooms,
-            status: 'success'
-        })
+        return JSON.parse(JSON.stringify(conferenceRooms))
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: "Error Occured"})
+        return JSON.parse('{"err":"Error Encounter"}')
     }
 }
 //these routes are only accessible to admins

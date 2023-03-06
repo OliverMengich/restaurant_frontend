@@ -11,6 +11,7 @@ export const getAllDishes = async function (limit) {
         const dishes = await DishesSchema.findAll();
         return dishes
     } catch (error) {
+        console.log("eeor is",error);
         return { error }
     }
 }

@@ -2,6 +2,7 @@ import DishesListComponent from '@/components/DishesList/DishesList.component';
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
 import FooterComponent from '@/components/footer/Footer.component';
 import { Dish } from '@/components/DishesList/Dish';
+import { getDishes } from '../api/controllers/dishes.controller';
 interface DishesPageProps{
     data: {[key: string]: Dish[]}
 }
@@ -29,8 +30,7 @@ function Dishes({ data}: DishesPageProps) {
 // fetch dishes from api
 export async function getStaticProps() {
     let newDishes={};
-    const res = await fetch('http://localhost:3000/api/dishes');
-    let {dishes} = await res.json();
+    const dishes = await getDishes();
     for (const category of ["Breakfast","Lunch","Dinner","Snacks","Drinks","Desserts"]) {
         Object.assign(newDishes, {
             [category]: dishes.filter((dish: Dish) => dish.category === category),

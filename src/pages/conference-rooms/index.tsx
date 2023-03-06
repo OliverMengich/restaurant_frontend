@@ -1,5 +1,7 @@
 import PageInfoComponent from '@/components/PageInfo/PageInfo.component';
+import { getAllConferenceRooms } from '../api/controllers/conferenceRooms.controllers';
 import React from 'react';
+import { getConferenceRooms } from '../api/services/conferenceRoom.services';
 interface ConferenceRoom{
     id: number;
     roomNumber: string;
@@ -37,11 +39,11 @@ function ConferenceRooms({ data}: ConferenceRoomsProps) {
 }
 export default ConferenceRooms;
 export async function getStaticProps() {
-    const res = await fetch('http://localhost:3000/api/conference-rooms');
-    const {conferenceRooms} = await res.json();
+    const conferenceRooms: ConferenceRoom[] = await getAllConferenceRooms()
+    console.log(conferenceRooms);
     return {
         props: {
-            data: conferenceRooms,
+            data: conferenceRooms as ConferenceRoom[],
         },
     };
 }

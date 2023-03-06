@@ -1,21 +1,15 @@
 import { getAllDishes, createDish, deleteDish, getDishById, updateDish } from "../services/dishes.services.js";
-export const getDishes = async (req, res) => {
+export const getDishes = async () => {
     try {
-        if(req.query.limit !==undefined){
-            const dishes = await getAllDishes();
-            return res.status(200).json({
-                dishes,
-                status: 'success'
-            })
-        }
+        // if(req.query.limit !==undefined){
+        //     const dishes = await getAllDishes();
+        //     return JSON.parse(JSON.stringify(dishes))
+        // }
         const dishes = await getAllDishes();
-        return res.status(200).json({
-            dishes,
-            status: 'success'
-        })
+        return JSON.parse(JSON.stringify(dishes))
     } catch (err) {
         console.log(err);
-        res.status(404).json({error: err});
+        return JSON.parse('{"err":"Error Encounter"}')
     }
 }
 export const createADish =  (async (req, res) => {

@@ -9,10 +9,6 @@ interface DishesResponse {
 export default async function handler(req:NextApiRequest, res:NextApiResponse<DishOutput[]>) {
     const method = req.method;
     switch (method) {
-        case 'GET':
-            const dishes = await getDishes(req, res);
-            res.status(200).send(dishes);
-            break;
         case 'POST':
             const newDish = await createADish(req,res);
             console.log(newDish);

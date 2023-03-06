@@ -7,10 +7,10 @@ interface FormInputData extends InputHTMLAttributes<HTMLInputElement>{
     value?: string
     onChange?: (e: React.FormEvent<HTMLInputElement>)=>void
 }
-const FormInput: FC<FormInputData> = ({  label,...otherProps }: FormInputData)=>{
+const FormInput: FC<FormInputData> = ({ onChange, label,...otherProps }: FormInputData)=>{
     return(
         <div className={formInputStyles.group}>
-            <input required className={formInputStyles["form-input"]} {...otherProps} />
+            <input onChange={onChange} required className={formInputStyles["form-input"]} {...otherProps} />
             {
                 label?(
                     <label className={formInputStyles[`${otherProps.value?.length ?'shrink':''} form-input-label`]}>{label}</label>

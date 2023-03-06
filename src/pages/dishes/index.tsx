@@ -6,10 +6,11 @@ interface DishesPageProps{
     data: {[key: string]: Dish[]}
 }
 function Dishes({ data}: DishesPageProps) {
-
+    if (!data) {
+        return(<h1>No Data Loaded...</h1>)
+    }
     return (
         <div>
-            {/* <h1>Dishes Page</h1> */}
             <PageInfoComponent path='Dishes' title='Dishes Page'/>
             {
                 ["Breakfast","Lunch","Dinner","Snacks","Drinks","Desserts"].map((category,i)=>{

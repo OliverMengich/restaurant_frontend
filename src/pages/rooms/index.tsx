@@ -4,6 +4,9 @@ import RoomListComponent from '@/components/RoomList/RoomList.component';
 import CenterFindComponent from '@/components/CenterFind/CenterFind.component';
 import FooterComponent from '@/components/footer/Footer.component';
 function RoomPage({rooms}:{rooms:IRoomDetails[]}) {
+    if (!rooms) {
+        return(<h1>No Rooms Loaded...</h1>)
+    }
     return (
         <div>
             <CenterFindComponent/>

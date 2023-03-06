@@ -16,6 +16,9 @@ export default function Home({ dishes, rooms }: HomeProps) {
     const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>)=> {
         return setSelectedDish((e.target as HTMLButtonElement).innerHTML);
     }
+    if (!dishes && !rooms) {
+        return(<h1>No Data Provided</h1>)
+    }
     return (
       <>
           <Head>

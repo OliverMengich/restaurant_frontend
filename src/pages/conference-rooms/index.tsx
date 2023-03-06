@@ -14,6 +14,9 @@ interface ConferenceRoomsProps{
     data: ConferenceRoom[]
 }
 function ConferenceRooms({ data}: ConferenceRoomsProps) {
+    if (!data) {
+        return(<h1>No Conference Rooms Loaded..</h1>)
+    }
     return (
         <div>
             <PageInfoComponent path='Conference Room' title='Conference Rooms' />

@@ -17,6 +17,13 @@ function RoomPage({rooms}:{rooms:IRoomDetails[]}) {
 }
 export async function getStaticProps() {
     const res = await fetch("http://localhost:3000/api/rooms");
+    if (typeof res ==='undefined') {
+        return{
+            props:{
+                rooms: null
+            }
+        }
+    }
     const {rooms} = await res.json();
     return {
         props: {

@@ -62,6 +62,14 @@ export default function Home({ dishes, rooms }: HomeProps) {
 export async function getStaticProps() {
     let newDishes: { [key: string]: Dish[] } = {};
     const fourDishes = await fetch('http://localhost:3000/api/dishes');
+    if (typeof fourDishes ==='undefined') {
+        return {
+            props:{
+                dishes: null,
+                rooms: null
+            }
+        }
+    }
     let {dishes}: {dishes: Dish[], status: string} = await fourDishes.json();
     for (const category of ["Breakfast","Lunch","Dinner","Snacks","Drinks","Desserts"]) {
         Object.assign(newDishes, {
@@ -69,6 +77,14 @@ export async function getStaticProps() {
         });
     }
     const fourRooms = await fetch('http://localhost:3000/api/rooms');
+    if (typeof fourRooms ==='undefined') {
+        return {
+            props:{
+                dishes: null,
+                rooms: null
+            }
+        }
+    }
     let {rooms} = await fourRooms.json();
     return {
         props: {

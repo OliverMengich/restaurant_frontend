@@ -11,6 +11,7 @@ function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp )
     return (
         <div className={categoriesListsStyles.categories}>
             <div className={categoriesListsStyles.sections}>
+                <h1 className={categoriesListsStyles.popular_txt}>Popular Dishes</h1>
                 {
                     Object.keys(dishes).map((category,id) => (<button key={id} onClick={buttonClick} className={selectedDish===category? categoriesListsStyles['selected']:categoriesListsStyles["btn"]}>{category}</button>))
                 }

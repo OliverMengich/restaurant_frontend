@@ -9,6 +9,9 @@
             width: 100%;
             display: block;
         }
+        .popular_txt{
+            display: none;
+        }
         .btn{
             background: none;
             width: 150px;
@@ -69,6 +72,10 @@
     .categories{
         .sections{
             width: 100%;
+            justify-content: space-between;
+            .popular_txt{
+                display: block;
+            }
             .btn{
                 display: none;
             }

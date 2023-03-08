@@ -34,11 +34,11 @@ export default function Home({ dishes, rooms }: HomeProps) {
           </Head>
             <div className={homeBodyStyles["home-body-info"]}>
                 <div style={{ float: "left" }}>
-                    <h1 style={{ fontSize: '4vw' }}>
+                    <h1 style={{ fontSize: '3vw' }}>
                         <span style={{ color: "yellow" }}>L&apos;Assiette</span>{" "}
                         Restaurant
                     </h1>
-                    <p style={{ fontSize: "1.5vw" }}>
+                    <p style={{ fontSize: "2vw" }}>
                         Come taste the best Friench dishes from Quiche Lorraine,
                         Salmon en papillote Prepared by{" "}
                         <span style={{ color: "yellow" }}>
@@ -49,7 +49,7 @@ export default function Home({ dishes, rooms }: HomeProps) {
                     </p>
                     <div className={homeBodyStyles.buttons}>
                         <button className={homeBodyStyles.btn}>Explore Food</button>
-                        <button className={homeBodyStyles.search_btn}>Search</button>
+                        <button className={homeBodyStyles.search_btn}> <span >&#128269;</span>  Search</button>
                     </div>
                 </div>
                 <Image

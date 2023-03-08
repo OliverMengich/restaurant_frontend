@@ -25,10 +25,10 @@ function NavComponent() {
                     <Link className={navStyles.link} href="/contact">Contact</Link>
                 </li>
                 <li>
-                    <Link className={navStyles.link} href="/auth">Login/Register</Link>
+                    <button className={navStyles.selected} >Login/Register</button>
                 </li>
                 <li>
-                    <Link className={navStyles.link} href="/cart">Cart</Link>
+                    <button className={navStyles.cart}>Cart</button>
                 </li>
             </ul>
         </div>

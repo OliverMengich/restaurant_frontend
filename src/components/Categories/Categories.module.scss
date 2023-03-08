@@ -33,9 +33,52 @@
             border-radius: 20px;
             cursor: pointer;
         }
+        .select{
+            display: none;
+            background: none;
+            width: 150px;
+            color: white;
+            outline: none;
+            padding: .5rem .5rem;
+            border: 1px solid orange;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .select:hover{
+            background: orange;
+            transition: .5s;
+        }
+        .select option{
+            background: none;
+            width: 150px;
+            color: white;
+            padding: .5rem .5rem;
+            border: 1px solid orange;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
         .section{
             width: 0%;
             display: none;
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    .categories{
+        .sections{
+            width: 100%;
+            .btn{
+                display: none;
+            }
+            .selected{
+                display: none;
+            }
+            .select{
+                display: block;
+                float: right;
+            }
         }
     }
 }

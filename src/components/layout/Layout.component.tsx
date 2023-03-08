@@ -7,9 +7,8 @@ type Props = {
 }
 const Layout = ( {children}: Props ) => {
     return (
-        <div className="wrapper" style={{ backgroundImage: `url(${bg.src})`, width: '100vw',overflowY:'scroll', height: '100vh' }}>
+        <div className="wrapper" style={{ backgroundImage: `url(${bg.src})`, width: '100vw',overflowY:'scroll',overflowX:'hidden', height: '100vh' }}>
             <NavComponent />
-            {/* <HomeBody/> */}
             {children}
         </div>
     )

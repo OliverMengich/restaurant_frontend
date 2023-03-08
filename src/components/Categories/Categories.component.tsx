@@ -14,6 +14,11 @@ function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp )
                 {
                     Object.keys(dishes).map((category,id) => (<button key={id} onClick={buttonClick} className={selectedDish===category? categoriesListsStyles['selected']:categoriesListsStyles["btn"]}>{category}</button>))
                 }
+                <select className={categoriesListsStyles.select} id="cars">
+                    {
+                        Object.keys(dishes).map((category,id) => (<option key={id} value={category}>{category}</option>))
+                    }
+                </select>
             </div>
             <div className={categoriesListsStyles.sections}>
                 {

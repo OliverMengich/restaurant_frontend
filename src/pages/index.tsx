@@ -47,6 +47,10 @@ export default function Home({ dishes, rooms }: HomeProps) {
                         ,<span style={{ color: "yellow" }}>Anne-Sophie Pic</span>{" "}
                         and Many More
                     </p>
+                    <div className={homeBodyStyles.buttons}>
+                        <button className={homeBodyStyles.btn}>Explore Food</button>
+                        <button className={homeBodyStyles.search_btn}>Search</button>
+                    </div>
                 </div>
                 <Image
                     src="/plate.png"

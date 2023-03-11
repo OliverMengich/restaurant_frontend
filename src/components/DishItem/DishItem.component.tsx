@@ -23,15 +23,16 @@ function DishItem({dish}: DishItemProps) {
                     alt="image1"
                     width={200}
                     height={200}
+                    className={dishesListStyles.img}
                 />
                 <h3 className={dishesListStyles["title"]}>
                     {dish.name}
                 </h3>
                 <RatingComponent rating={dish.rating} />
-                <p>{dish.description.slice(0,50)}</p>
+                {/* <p>{dish.description.slice(0,50)}</p> */}
                 
                 <div className={dishesListStyles.dishes_action}>
-                    <h3>${dish.price}</h3>
+                    <h3 className={dishesListStyles.title}>${dish.price}</h3>
                     <button className={dishesListStyles["cart-btn"]}>
                         Add to Cart
                     </button>

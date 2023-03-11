@@ -15,8 +15,12 @@ interface HomeProps {
 }
 export default function Home({ dishes, rooms }: HomeProps) {
     const [selectedDish,setSelectedDish] = useState("Breakfast")
-    const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>)=> {
-        return setSelectedDish((e.target as HTMLButtonElement).innerHTML);
+    const handleButtonClick = (e: (React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLSelectElement>))=> {
+        if ((e.target as HTMLSelectElement).value) {
+            return setSelectedDish((e.target as (HTMLSelectElement)).value)
+        }else{
+            return setSelectedDish((e.target as (HTMLButtonElement)).innerHTML);
+        }
     }
     if (!dishes && !rooms) {
         return(<h1>No Data Provided</h1>)
@@ -38,7 +42,7 @@ export default function Home({ dishes, rooms }: HomeProps) {
                         <span style={{ color: "yellow" }}>L&apos;Assiette</span>{" "}
                         Restaurant
                     </h1>
-                    <p style={{ fontSize: "2vw" }}>
+                    <p style={{ fontSize: "1.5vw" }}>
                         Come taste the best Friench dishes from Quiche Lorraine,
                         Salmon en papillote Prepared by{" "}
                         <span style={{ color: "yellow" }}>
@@ -69,7 +73,6 @@ export async function getStaticProps() {
     
     let newDishes: { [key: string]: Dish[] } = {};
     const fourDishes = await getDishes();
-    console.log(fourDishes);
     if (typeof fourDishes ==='undefined') {
         return {
             props:{
@@ -99,5 +102,4 @@ export async function getStaticProps() {
         },
         revalidate: 10
     };
-    
 }

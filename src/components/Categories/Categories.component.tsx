@@ -4,7 +4,7 @@ import DishesListComponent from '../DishesList/DishesList.component';
 import { Dish } from '../DishesList/Dish';
 interface CategoriesProp{
     dishes: {[key: string]:Dish[]} ,
-    buttonClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+    buttonClick: (e: React.MouseEvent<HTMLButtonElement>| React.FormEvent<HTMLSelectElement>) => void
     selectedDish: string
 }
 function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp ) {
@@ -15,7 +15,7 @@ function CategoriesComponent({dishes, buttonClick,selectedDish}:CategoriesProp )
                 {
                     Object.keys(dishes).map((category,id) => (<button key={id} onClick={buttonClick} className={selectedDish===category? categoriesListsStyles['selected']:categoriesListsStyles["btn"]}>{category}</button>))
                 }
-                <select className={categoriesListsStyles.select} id="cars">
+                <select onChange={buttonClick} className={categoriesListsStyles.select} id="cars">
                     {
                         Object.keys(dishes).map((category,id) => (<option key={id} value={category}>{category}</option>))
                     }

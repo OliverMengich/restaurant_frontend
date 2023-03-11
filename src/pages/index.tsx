@@ -69,7 +69,7 @@ export async function getStaticProps() {
     
     let newDishes: { [key: string]: Dish[] } = {};
     const fourDishes = await getDishes();
-    
+    console.log(fourDishes);
     if (typeof fourDishes ==='undefined') {
         return {
             props:{

@@ -17,7 +17,7 @@ const DishesSchema = sequelize.define('Dishes',{
         allowNull: false
     },
     imageUrl:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
     },
     description:{

@@ -6,6 +6,8 @@
     color: #fff;
     padding-top: 2rem;
     padding-bottom: .5rem;
+    align-items: center;
+    position: relative;
 }
 .nav ul{
     display: flex;
@@ -44,12 +46,30 @@
     cursor: pointer;
     background: none;
 }
-@media screen and (max-width: 830px) {
-    /* .nav{
-        border-bottom: none;
-    } */
+.bars{
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    border: 1px solid orange;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+@media screen and (max-width: 900px) {
     .nav ul{
         flex-direction: column;
         display: none;
+        background-color: black;
+        position: absolute;
+        top: 10vh;
+        width: 50vw;
+        right: 0;
+        z-index: 99;
+    }
+    .nav ul li{
+        padding: .5rem 0;
+        border-bottom: 1px solid orange;
+    }
+    .bars{
+        display: block;
     }
 }

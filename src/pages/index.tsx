@@ -9,6 +9,7 @@ import { Dish } from '@/components/DishesList/Dish';
 import { useState } from 'react';
 import { getDishes } from './api/controllers/dishes.controller';
 import { getAllRooms } from './api/controllers/rooms.controllers';
+import Link from 'next/link';
 interface HomeProps {
     dishes: {[key: string]: Dish[]};
     rooms: IRoomDetails[] ;
@@ -52,7 +53,7 @@ export default function Home({ dishes, rooms }: HomeProps) {
                         and Many More
                     </p>
                     <div className={homeBodyStyles.buttons}>
-                        <button className={homeBodyStyles.btn}>Explore Food</button>
+                        <Link href='/dishes' className={homeBodyStyles.btn}>Explore Food</Link>
                         <button className={homeBodyStyles.search_btn}> <span >&#128269;</span>  Search</button>
                     </div>
                 </div>

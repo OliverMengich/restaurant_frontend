@@ -1,5 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
+import { AiOutlineMail } from 'react-icons/ai';
+import { GoLocation } from 'react-icons/go';
+import { FaFacebookMessenger, FaLinkedin, FaInstagram, FaTwitter, FaPhoneAlt, FaLocationArrow  } from 'react-icons/fa';
 import footerStyles from './Footer.module.css';
 import Link from 'next/link';
 function FooterComponent() {
@@ -9,41 +11,45 @@ function FooterComponent() {
                 <h3>ABOUT</h3>
                 <p>
                     L&apos;Restaurant is a multi-visit destination for food
-                    lovers in Nairobi. From rich nd creamy saucses to perfectly
-                    roasted meats, every dish is crafted wit carre and
-                    precision, using only the freshest ingredients. Join us for
+                    lovers in Nairobi.  Join us for
                     a memorable dining experience.and taste the essence of
                     France in Nairobi.
                 </p>
                 <div className={footerStyles.socialMedia}>
-                    <Link
-                        className={footerStyles.facebook}
-                        href="https://facebook.com/"
-                    ></Link>
-                    <Link href="https://www.linkedin.com"></Link>
-                    <Link href="https://www.instagram.com"></Link>
-                    <Link href="https://www.twitter.com"></Link>
+                    <Link style={{padding: '.3rem', fontSize: '20px', textAlign: 'center'}} href="https://facebook.com/"> <FaFacebookMessenger/> </Link>
+                    <Link style={{padding: '.3rem', fontSize: '20px', textAlign: 'center'}} href="https://www.linkedin.com"> <FaLinkedin/> </Link>
+                    <Link style={{padding: '.3rem', fontSize: '20px', textAlign: 'center'}} href="https://www.instagram.com"> <FaInstagram/> </Link>
+                    <Link style={{padding: '.3rem', fontSize: '20px', textAlign: 'center'}} href="https://www.twitter.com"> <FaTwitter/> </Link>
                 </div>
             </div>
             <div className={footerStyles["section"]}>
                 <h3>Services</h3>
                 <ul className={footerStyles.links}>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Services</li>
-                    <li>Blog</li>
-                    <li>Contact Us</li>
+                    <li> <FaLocationArrow/> Home</li>
+                    <li> <FaLocationArrow/>  About</li>
+                    <li> <FaLocationArrow/> Services</li>
+                    <li> <FaLocationArrow/>Blog</li>
+                    <li> <FaLocationArrow/>Contact Us</li>
+                </ul>
+            </div>
+            <div className={footerStyles["section"]}>
+                <h3>About</h3>
+                <ul className={footerStyles.links}>
+                    <li> <FaLocationArrow/> Our Story</li>
+                    <li> <FaLocationArrow/> Our Chefs</li>
+                    <li> <FaLocationArrow/> Career</li>
+                    <li> <FaLocationArrow/> Benefits</li>
                 </ul>
             </div>
             <div className={footerStyles["section"]}>
                 <h3>Contact Us</h3>
                 <ul>
-                    <li> 📞+(254)-712-345-678</li>
+                    <li> <FaPhoneAlt/> +(254)-712-345-678</li>
                     <li>
-                        &#64; Luxury hotel, #32841 block, #221DRS Rental & Paid
+                        <GoLocation/> Luxury hotel, #32841 block, #221DRS Rental & Paid
                         rooms business, UK.
                     </li>
-                    <li> ✉ email@gmail.com</li>
+                    <li > <AiOutlineMail style={{fontSize:'20px'}}/> email@gmail.com</li>
                 </ul>
             </div>
         </div>

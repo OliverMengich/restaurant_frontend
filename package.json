@@ -24,6 +24,7 @@
     "pg-hstore": "^2.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "sass": "^1.58.0",
     "sequelize": "^6.28.0",

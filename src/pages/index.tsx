@@ -44,13 +44,16 @@ export default function Home({ dishes, rooms }: HomeProps) {
                         Restaurant
                     </h1>
                     <p style={{ fontSize: "1.5vw" }}>
-                        Come taste the best Friench dishes from Quiche Lorraine,
+                        {/* Come taste the best Friench dishes from Quiche Lorraine,
                         Salmon en papillote Prepared by{" "}
                         <span style={{ color: "yellow" }}>
                             Chef Hélène Darrozet
                         </span>
                         ,<span style={{ color: "yellow" }}>Anne-Sophie Pic</span>{" "}
-                        and Many More
+                        and Many More */}
+                        From rich nd creamy sauces to perfectly
+                    roasted meats, every dish is crafted wit care and
+                    precision, using only the freshest ingredients. Join us
                     </p>
                     <div className={homeBodyStyles.buttons}>
                         <Link href='/dishes' className={homeBodyStyles.btn}>Explore Food</Link>
